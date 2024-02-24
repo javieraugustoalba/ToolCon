@@ -1,0 +1,173 @@
+
+.custom-gray { color: rgba(19, 19, 19, 0.6);}
+.custom-blue { color: #3563E9; }
+.custom-dark { color: #1A202C; }
+.custom-border { border-color: rgba(19, 19, 19, 0.16); }
+
+.piedepagina {
+  position: absolute;
+  width: 100%;
+  height: 480px;
+  left: 0px;
+  top: 1170px;
+  background: #FFFFFF;
+}
+  .piedepagina .marca{
+    width: 148px;
+    height: 44px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.03em;
+    color: #3563E9;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+
+  .piedepagina .textmarca{
+    width: 292px;
+    height: 48px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.02em;
+    color: #90A3BF;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+
+  .piedepagina .marcalogo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+    position: absolute;
+    width: 292px;
+    height: 108px;
+    left: 60px;
+    top: 80px;
+  }
+
+  .piedepagina .nosotros{
+    position: absolute;
+    width: 152px;
+    height: 244px;
+    right: 557px;
+    top: 80px;
+  }
+  .piedepagina .comunidad{
+    position: absolute;
+    width: 152px;
+    height: 244px;
+    right: 346px;
+    top: 80px;
+  }
+  .piedepagina .redes{
+    position: absolute;
+    width: 152px;
+    height: 244px;
+    right: 135px;
+    top: 80px;
+  }
+
+  
+  /* Línea de Separación y Texto de Derechos Reservados */
+
+  .piedepagina .linea {
+    position: absolute;
+    height: 0px;
+    top: 360px; /* Ajusta la posición vertical según tus necesidades */
+    left: 60px; /* Espacio en el lado izquierdo */
+    right: 60px; /* Espacio en el lado derecho */
+    border: 1px solid rgba(19, 19, 19, 0.16);
+  }
+  
+  .piedepagina .derechos-reservados {
+    position: absolute;
+    width: 292px;
+    height: 24px;
+    left: 60px;
+    top: 34px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.02em;
+    color: #1A202C;
+    mix-blend-mode: normal;
+  }
+  .piedepagina .politicas-privacidad{
+    position: absolute;
+    width: 180px;
+    height: 24px;
+    right: 290px;
+    top: 38px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    letter-spacing: -0.02em;
+    color: #1A202C;
+    mix-blend-mode: normal;
+  }
+
+  .piedepagina .politicas-terminos {
+    position: absolute;
+    width: 192px;
+    height: 24px;
+    right: 55px;
+    top: 38px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    letter-spacing: -0.02em;
+    color: #1A202C;
+    mix-blend-mode: normal;
+  }
+
+  .text-lg{
+    font-size: 20px;
+  }
+  
+  /* Ajustes de Responsividad */
+  @media (max-width: 768px) {
+    .piedepagina {
+      padding: 20px; /* Ajusta el espacio interno en dispositivos móviles */
+    }
+  
+    .piedepagina .flex {
+      flex-direction: column;
+    }
+  
+    .piedepagina .border-t-1,
+    .piedepagina .derechos-reservados {
+      margin-top: 10px;
+    }
+
+  }
+  a {
+    text-decoration: none; /* Quitar subrayado */
+    color: inherit; /* Usar el color del texto del elemento padre */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el enlace */
+    outline: none; /* Quitar el contorno al hacer clic */
+  }
+
+  a:hover {
+    color: #1E3A8A; /* Color azul al pasar el mouse */
+  }

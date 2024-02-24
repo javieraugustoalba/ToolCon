@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #F1F1F1;
+  }
+  /* Contenedor Principal */
+  .catalog1 {
+    position: absolute;
+    width: 317px;
+    height: 388px;
+    left: 50%;
+    top: 350px;
+    transform: translate(-50%);
+    background: #FFFFFF;
+    border-radius: 10px;;
+  }
+  
+  /* Logo */
+.logo{
+    position: absolute;
+    width: 124px;
+    height: 44px;
+    left: 105px;
+    top: 53px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 150%;
+    letter-spacing: -0.03em;
+    color: #3563E9;  
+}
+
+  
+  /* Formulario y Campos de Entrada */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Especificación */
+  .specification {
+    position: absolute;
+    width: 214px;
+    height: 82px;
+    left: 59px;
+    top: 134px;
+    border-radius: 20px;
+    /*margin-top: 20px;*/
+  }
+  
+  /* Campos de Entrada */
+  input {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  /* Botón */
+  button {
+    position: absolute;
+    width: 116px;
+    height: 40px;
+    left: 107px;
+    top: 294px;
+    border: none;
+    left: 107;
+    top: 294;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    background: #3563E9;
+    border-radius: 10px;
+    position: absolute;
+  }
+  
+  /* Texto dentro del Botón */
+  .ingresar {
+    color: #FFFFFF;
+    font-size: 16px;
+  }
+  
+  /* Texto Adicional */
+  .texto {
+    position: absolute;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Otros Estilos */
+  .rectangle1,
+  .rectangle2 {
+    position: absolute;
+    width: 213px;
+    height: 31px;
+    background: #EFF3FD;
+    border-radius: 20px;
+  }
+  
+  .rectangle1 {
+    top: 0;
+    left: 0;
+  }
+  
+  .rectangle2 {
+    top: 51px;
+    left: 1px;
+  }
+  
+  /* Contraseña */
+  .password {
+    position: absolute;
+    width: 75px;
+    height: 24px;
+    left: 129px;
+    top: 51px;
+    color: #90A3BF;
+  }
+  input::placeholder{
+    color: #90A3BF;
+  }
+
+  input:focus, input{
+    outline: none;
+    border: none;
+    color: #90A3BF;
+    font-size: 16px;
+  }
+
+  button:hover{
+    background-color: #1f52e9;
+  }
+
+
+
+
+
+
+
+
+
