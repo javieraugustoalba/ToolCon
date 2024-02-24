@@ -1,0 +1,6 @@
+@ToolConWebAPI_HostAddress = http://localhost:5214
+
+GET {{ToolConWebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
