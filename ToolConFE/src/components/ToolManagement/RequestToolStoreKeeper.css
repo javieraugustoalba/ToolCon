@@ -1,0 +1,447 @@
+/*SOLICITUD DE HERRAMIENTAS*/
+
+
+.rental-infos /* frame solicitudes de herramienta*/{
+  position: relative;
+  width: 100%;
+  height: 664px;
+  background: #ffffff;
+  z-index: 34;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.rental-info-1 /*solicitud herramientas*/{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 4px;
+  position: relative;
+  width: 281px;
+  margin: 24px 0 0 24px;
+  z-index: 35;
+}
+.tool-requests /*solicitud herramientas*/ {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  width: 281px;
+  height: 24px;
+  color: #1a202c;
+  font-family: Plus Jakarta Sans, var(--default-font-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.6px;
+  z-index: 36;
+}
+.new-requests-made /*solicitud herramientas*/{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  width: 200px;
+  height: 21px;
+  color: #90a3bf;
+  font-family: Plus Jakarta Sans, var(--default-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.28px;
+  z-index: 37;
+}
+.flex-row-ec /*solicitud herramientas*/{
+  position: relative;
+  width: 214px;
+  height: 20px;
+  margin: 31px 0 0 24px;
+  z-index: 71;
+}
+.pick-up /*solicitud herramientas*/{
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+  position: absolute;
+  width: 92px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  z-index: 38;
+}
+/* Eleccion solicitud */
+.mark /*solicitud herramientas*/{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  position: relative;
+  width: 16px;
+  padding: 4px 4px 4px 4px;
+  background: rgba(53, 99, 233, 0.3);
+  z-index: 39;
+  border-radius: 70px;
+}
+
+.assign /*solicitud herramientas*/{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  width: 68px;
+  height: 20px;
+  color: #1a202c;
+  font-family: Plus Jakarta Sans, var(--default-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.32px;
+  z-index: 41;
+}
+.return /*solicitud herramientas*/{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  height: 20px;
+  top: 0;
+  left: 134px;
+  color: #1a202c;
+  font-family: Plus Jakarta Sans, var(--default-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.32px;
+  z-index: 71;
+}
+
+input[type="radio"] {
+  margin-top: 10px;
+  margin-right: 8px; /* Ajusta el margen derecho según sea necesario */
+}
+
+/**/
+.flex-row-ff /*solicitud herramientas*/{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 770px;
+  height: 92px;
+  margin: 24px 0 0 24px;
+  z-index: 49;
+}
+
+.locations /*solicitud herramientas*/{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 16px;
+  position: relative;
+  width: 386px;
+  z-index: 42;
+}
+/* select opciones solicitud herramientas */
+
+.tool /*solicitud herramientas*/{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  width: 110px;
+  height: 20px;
+  color: #1a202c;
+  font-family: Plus Jakarta Sans, var(--default-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.32px;
+  z-index: 43;
+  
+}
+.select-city /*solicitud herramientas*/{
+  margin-left: 32px;
+  flex-shrink: 0;
+  outline: none;
+  position: relative;
+  width: 343px;
+  margin-right: 36px;
+  height: 56px;
+  z-index: 44;
+  color: #131825;
+  font-family: Plus Jakarta Sans, var(--default-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.28px;
+  outline: none;
+  border: none;
+  background-color: #f4f5f7;
+  border-radius: 20px;
+  /*
+  Cambiar icono toogle:
+  appearance: none;
+  background: url(./assets/images/0fc0fc0c-85d5-43e9-81f5-ff168a1c78b6.png) no-repeat right center;
+  */
+}
+
+.bg /*solicitud herramientas*/{
+  position: absolute;
+  width: 386px;
+  height: 56px;
+  top: 0;
+  left: 0;
+  background: #f6f7f9;
+  z-index: 45;
+  border-radius: 10px;
+}
+.select /*solicitud herramientas*/{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  height: 24px;
+  top: 16px;
+  left: 32px;
+  z-index: 46;
+}
+
+.date /*solicitud herramientas*/{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 16px;
+  position: relative;
+  width: 386px;
+  z-index: 49;
+}
+.operator /*solicitud herramientas*/{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  width: 89px;
+  height: 20px;
+  color: #1a202c;
+  font-family: Plus Jakarta Sans, var(--default-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.32px;
+  margin-bottom: 13px;
+  z-index: 50;
+}
+
+/* _ _ _ _ _ _ _ _ _ _ */ 
+
+
+.estado /*solicitud herramientas*/{
+  display: flex;
+  flex-direction: column; /* Cambio a dirección de columna */
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  width: 200px;
+  height: auto; /* Cambio la altura a auto */
+  color: #1a202c;
+  font-family: Plus Jakarta Sans, var(--default-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.32px;
+  padding-bottom: 1px;
+  z-index: 57;
+}
+
+.mostrar-estado /*solicitud herramientas*/{
+  display: block;
+  background: #f4f5f7;
+  position: relative; /* Cambio a posición relativa */
+  width: 340px;
+  height: 56px;
+  margin-left: 36px;
+  border-radius: 20px; /* Ajusta el valor del borde según sea necesario */
+  color: #90a3bf;
+  font-family: Plus Jakarta Sans, var(--default-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.28px;
+  z-index: 60;
+}
+/* Asignar codigo */
+/* .time-a en lugar de .time */
+.time-a {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 16px;
+  position: relative;
+  width: 350px;
+  z-index: 61;
+}
+
+.codigo-de-la-herramienta /*solicitud herramientas*/{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  width: 89px;
+  height: 20px;
+  color: #1a202c;
+  font-family: Plus Jakarta Sans, var(--default-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.32px;
+  z-index: 62;
+}
+
+.marco-ingresar-herramienta /*solicitud herramientas*/{
+  flex-shrink: 0;
+  position: relative;
+  width: 350px;
+  margin-right: 36px;
+  margin-left: 32px;
+  height: 56px;
+  font-size: 0px;
+  z-index: 63;
+  border-radius: 20px;
+  background: #f4f5f7;
+  
+}
+
+.ingresar-codigo /*solicitud herramientas*/{
+  position: relative;
+  height: 24px;
+  margin-top: 16px;
+  color: #90a3bf;
+  font-family: Plus Jakarta Sans, var(--default-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.28px;
+  z-index: 65;
+  background:  #f4f5f7;
+}
+
+.drop-off /*solicitud herramientas*/{
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+  position: relative;
+  width: 104px;
+  height: 20px;
+  margin: 32px 0 0 24px;
+  padding-top: 50px;
+  z-index: 68;
+}
+.fecha-de-asignacion-entrega /*solicitud herramientas*/{
+  display: block;
+  position: relative;
+  height: 20px;
+  margin: 45px 0 0 24px;
+  color: #1a202c;
+  font-family: Plus Jakarta Sans, var(--default-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.32px;
+  z-index: 66;
+}
+.button-rent /*solicitud herramientas*/{
+  position: absolute;
+  width: 290px;
+  height: 40px;
+  background: #3563e9;
+  border: none;
+  border-radius: 4px;
+}
+.asignar-herramienta /*solicitud herramientas*/{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  width: 178px;
+  height: 16px;
+  color: #ffffff;
+  font-family: Plus Jakarta Sans, var(--default-font-family);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: -0.32px;
+  z-index: 73;
+}
+.bottonloco{
+  position: absolute;
+  left: 600px;
+  top: 200px;
+  width: 290px;
+  height: 40px;
+  color: #ffffff; 
+  width: 290px;
+  height: 40px;
+  background: #3563E9;
+  border-radius: 4px;
+
+}
+
+.color-rtsk {
+  position: relative;
+  width: 100%;
+  height: 664px;
+  background: #ffffff;
+  z-index: 34;
+  overflow: hidden;
+  border-radius: 10px;
+}

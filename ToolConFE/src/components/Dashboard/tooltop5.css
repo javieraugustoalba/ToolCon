@@ -1,0 +1,239 @@
+/*
+
+ TOOLCON5
+
+*/
+.div-top-car-rental /*Top 5 herramientas frame*/{
+    position: absolute;
+    width: 308px;
+    height: 663px;
+    top: 2px;
+    right: 1px;
+    background: #ffffff;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  .div-top-car-rental-1e /*Top 5 tools*/{
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 260px;
+    position: relative;
+    width: 476px;
+    margin: 24px 0 0 24px;
+    z-index: 1;
+  }
+  .span-top-toolcon /*Top 5 tools*/{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    width: 192px;
+    height: 24px;
+    color: #1a202c;
+    font-family: Plus Jakarta Sans, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: left;
+    white-space: nowrap;
+    letter-spacing: -0.6px;
+    z-index: 2;
+  }
+  .div-more /*Top 5 tools*/{
+    flex-shrink: 0;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    z-index: 3;
+  }
+  .vuesax-linear-more /*Top 5 tools*/{
+    position: relative;
+    margin: 0 0 0 0;
+    background: url(../assets/images/4d205598-080e-4828-aac6-3ee960070fac.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 4;
+  }
+  /*_ _ _ Herramientas presentadas en Tool 5 D_ _ _*/
+  .sportool {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 36px;
+    position: relative;
+  }
+  .spot-tool /*Top 5 tools*/{
+    width: 181px;
+    margin: 284px 0 0 37px;
+  }
+  .spot-tool2 /*Top 5 tools*/{
+    width: 181px;
+    margin: 25px 0 0 37px;
+  }
+  .spot-tool3 /*Top 5 tools*/{
+    width: 181px;
+    margin: 25px 0 0 37px;
+  
+  }
+  .spot-tool4 /*Top 5 tools*/{
+    width: 181px;
+    margin: 25px 0 0 37px;
+  
+  }
+  .spot-tool5 /*Top 5 tools*/{
+    width: 181px;
+    margin: 25px 0 0 37px;
+  
+  }
+  /*_ _ _ _ _  _ _ _ _ _ _*/
+  
+  .spot-margin /*Margen caja contenedora de informacion*/{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    gap: 12px;
+    position: relative;
+    width: 124px;
+    z-index: 9;
+  }
+  
+  .herramientatool /*Nombre de la herramientas*/{
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    width: 100px;
+    height: 16px;
+    color: #0a196f;
+    font-family: Plus Jakarta Sans, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: justified;
+    white-space: nowrap;
+    letter-spacing: -0.28px;
+    z-index: 11;
+  }
+  .cantidadtool /*Diseño del numero de cantidad de herramientas*/{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    width: 22px;
+    height: 24px;
+    color: #1a202c;
+    font-family: Plus Jakarta Sans, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: right;
+    white-space: nowrap;
+    letter-spacing: -0.28px;
+    z-index: 12;
+  }
+  /*_ _ _ _ _ _ _ _ _ _ Puntitos de ToolCon _ _ _ _ _ _ _ _ _*/
+  .mark-tool /*Top 5 tools*/{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    position: relative;
+    width: 12px;
+    height: 12px;
+    padding: 2px 2px 2px 2px;
+    z-index: 10;
+    border-radius: 70px;
+  }
+  
+  .markcolor1 {
+    background: #0d3559;
+  }
+  .markcolor2 /*Top 5 tools*/{
+    background: #175d9c;
+  }
+  
+  .markcolor3 /*Top 5 tools*/{
+    background: #2185de;
+  }
+  
+  .markcolor4 /*Top 5 tools*/{
+    background: #63a9e8;
+  }
+  
+  .markcolor5 /*Top 5 tools*/{
+    background: #a6cef2;
+  }
+  /* _ _ _ _ _ _ _ _ _ _ _ _ _ _ _*/
+  
+  .chart /*Grafica de pastel*/{
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    top: 80px;
+    left: 24px;
+    background: url(../assets/images/a0dd0a0e-3e53-44b2-9977-5726e4ad3557.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 33;
+    border-radius: 5px;
+  }
+  
+  .rental-car /*Top 5 tools*/{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 4px;
+    position: absolute;
+    width: 100px;
+    height: 64px;
+    top: 158px;
+    left: 84px;
+    z-index: 5;
+  }
+  .text-2b /*Top 5 tools*/{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    width: 100px;
+    height: 39px;
+    color: #1a202c;
+    font-family: Plus Jakarta Sans, var(--default-font-family);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: -0.72px;
+    z-index: 6;
+  }
+  .prestamos /*Top 5 tools*/{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    width: 100px;
+    height: 21px;
+    color: #0a196f;
+    font-family: Plus Jakarta Sans, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: -0.28px;
+    z-index: 7;
+  }

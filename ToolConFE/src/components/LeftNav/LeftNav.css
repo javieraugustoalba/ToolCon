@@ -1,0 +1,190 @@
+.box { /**CAJA DEL NAV*/
+    position: absolute;
+    width: 286px;
+    height: 1037px;
+    top: 1px;
+    left: 0;
+    background: #ffffff;
+    border-right: 1px solid #f1f1f1;
+    z-index: 112;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .section { /*Parte donde se almacenan los elementos del nav*/
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    gap: 42px;
+    position: relative;
+    width: 88px;
+    z-index: 114;
+  }
+  .text { /*Text MAIN*/
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px;
+      gap: 42px;
+      margin-top: 46px;
+      margin-left: 10px;
+      width: 100px;
+      font-size: 12px;
+      height: 16px;
+      order: 0;
+      flex-grow: 0;
+      letter-spacing: 0.03em;
+      color: #0A196F;
+  }
+  
+  .section-1 /*Textos opciones*/{
+    background: #D6E4FD;
+    border-radius: 10px;
+    height: 53px;
+    width: 255px;
+    border: none;
+    margin-left: 10px;
+    margin-top: 40px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    letter-spacing: -0.02em;
+    color: #102E7A;
+    flex: none;
+    flex-grow: 0;
+  }
+  
+  .section-1:active, .section-1:hover, .section-1:hover span { /* animacion nav no se como usar bien el active*/
+    background: #3563E9;
+    border-radius: 10px;
+    color: #FFFFFF;
+  }
+
+  .img /*Imagen de las opciones del nav (dashboard)*/ {
+    height: 24px;
+    width: 24px;
+    margin-right: 14px;
+    margin-left: 23px;
+    background: url(../assets/images/8aacae03-5320-4f25-9eca-1249cd23ad92.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 120;
+  }
+
+  .img-2 /*Imagen de las opciones del nav (gestion herramientas)*/{
+    height: 24px;
+    width: 24px;
+    margin-right: 14px;
+    margin-left: 23px;
+    background: url(../assets/images/a1c943d9-83f2-45b2-a47b-9e7cf583f0fe.png)
+      no-repeat center;
+    background-size: 100% 100%;
+    z-index: 126;
+  }
+
+  .img-3 /*Imagen de las opciones del nav (gestion operarios)*/{
+    height: 24px;
+    width: 24px;
+    margin-right: 14px;
+    margin-left: 23px;
+    background: url(../assets/images/258c827e-a88a-4dad-87b9-4e6b5929196b.png)
+      no-repeat center;
+    background-size: 100% 100%;
+    z-index: 131;
+  }
+
+  .img-4 /*Imagen de las opciones del nav (reportes)*/{
+    height: 24px;
+    width: 24px;
+    margin-right: 14px;
+    margin-left: 23px;
+    background: url(../assets/images/730f2028-14b6-436f-b575-374da93dee02.png)
+      no-repeat center;
+    background-size: 100% 100%;
+    z-index: 137;
+  }
+
+  .img-5 {
+    height: 24px;
+    width: 24px;
+    margin-right: 14px;
+    margin-left: 15px;
+    background: url(../assets/images/188c7be9-6d02-43f2-8e4d-0c56f65945b9.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 142;
+  }
+
+  .img-6{
+    height: 24px;
+    width: 24px;
+    margin-right: 14px;
+    margin-left: 15px;
+    background: url(../assets/images/1d20208b-57ed-482a-a0e0-0c3e576b001b.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 146;
+  }
+
+  .text-2 { /*Texto de las opciones del Nav*/
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    width: 176px;
+    height: 24px;
+    color: #102e7a;
+    font-family: Plus Jakarta Sans, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: justified;
+    white-space: nowrap;
+    letter-spacing: -0.32px;
+    z-index: 127;
+  }
+
+  .center-help {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    width: 159px;
+    height: 28px;
+    color: #0a196f;
+    font-family: Plus Jakarta Sans, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 28px;
+    text-align: left;
+    white-space: nowrap;
+    letter-spacing: -0.32px;
+    z-index: 143;
+  }
+
+  .configuration {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    flex-basis: auto;
+    position: relative;
+    width: 117px;
+    height: 28px;
+    color: #0a196f;
+    font-family: Plus Jakarta Sans, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 28px;
+    text-align: justified;
+    white-space: nowrap;
+    letter-spacing: -0.32px;
+    z-index: 147;
+  }

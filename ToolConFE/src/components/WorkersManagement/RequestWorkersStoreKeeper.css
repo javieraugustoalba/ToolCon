@@ -1,0 +1,191 @@
+/* Lista Operarios */
+
+/*Titulo*/
+.recent-transaction {
+    position: relative;
+    width: 476px;
+    height: 375px;
+    margin: 5px 0 0 0;
+    background: #d6e4fd;
+    z-index: 100;
+    overflow: scroll;
+    border-radius: 10px;
+  }
+  
+  .flex-row-ef {
+    position: relative;
+    width: 250px;
+    height: 34px;
+    margin: 8px 0 0 28px;
+    z-index: 111;
+  }
+  .car-name {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 8px;
+    position: absolute;
+    width: 175px;
+    height: 34px;
+    top: 0;
+    left: 75px;
+    padding: 0 0 0 0;
+    z-index: 110;
+  }
+  .solicitudes-de-operarios {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    height: 30px;
+    top: 4px;
+    left: calc(50% - 125px);
+    color: #1a202c;
+    font-family: Plus Jakarta Sans, var(--default-font-family);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: left;
+    white-space: nowrap;
+    letter-spacing: -0.6px;
+    z-index: 111;
+  }
+
+ /* _ _ _ _ _ _ _ _ _ _ _ _ */ 
+
+
+
+
+  .div-flex-row-bc /*Da forma*/{
+    position: relative;
+    width: 467px;
+    height: 33.393px;
+    margin: 0 0 0 0;
+    z-index: 107;
+  }
+  
+  .div-car-name-17 /*Espacio a la imagen*/{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 8px;
+    position: absolute;
+    width: 108.895px;
+    height: 33.393px;
+    top: 0;
+    left: 17.358px;
+    z-index: 101;
+  }
+  /*Frames operarios*/
+  
+  .recent-transaction-e /*Margen hacia arriba*/ {
+
+    position: relative;
+    width: 467px;
+    height: 324px;
+    margin: 12px 0 0 0;
+    z-index: 80;
+  }
+  
+   /*SPAN Operarios*/
+
+
+   .span-nombre {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    height: 7px;
+    top: 12.887px;
+    left: 111.298px;
+    color: #1a202c;
+    font-family: Plus Jakarta Sans, var(--default-font-family);
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 7px;
+    text-align: left;
+    white-space: nowrap;
+    letter-spacing: -0.32px;
+    z-index: 95;
+  }
+  .span-pedido {
+    display: block;
+    position: relative;
+    height: 5.432px;
+    margin: 16.064px 0 0 111.298px;
+    color: #3d5278;
+    font-family: Plus Jakarta Sans, var(--default-font-family);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 5.432px;
+    text-align: left;
+    white-space: nowrap;
+    letter-spacing: -0.28px;
+    z-index: 94;
+  }
+/* contenedor div boton */
+
+  /*.div-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 8px;
+    position: absolute;
+    width: 68.776px;
+    height: 11.82px;
+    top: 2.955px;
+    left: 398.224px;
+  }*/
+    
+
+
+  /* Boton Asignar */
+  .button-rent {
+    height: 40px;
+    width: 60px;
+    position: relative;
+    z-index: 100; /* Ajusta según sea necesario */
+    margin-left: 270px;
+    top: -60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 8.393px;
+    position: relative;
+    background: #3563e9;
+    border: none;
+    border-radius: 4.197px;
+}
+  .span-asignar {
+    color: #ffffff;
+  }
+
+  /*Imagenes de los operarios*/
+
+  .div-line-1d {
+    position: relative;
+    width: 383px;
+    height: 1px;
+    top: -20px;
+    margin-left: 42px;
+    background: url(../assets/images/e0c536b2-7a5b-46c1-ac49-d3fe3cdbce61.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 104;
+  }
+
+  .div-image {
+    flex-shrink: 0;
+    position: relative;
+    width: 85px;
+    height: 85px;
+    background: url(../assets/images/ed4044a5dabf3c3cfa8414fd64131d4b25aaa801.png)
+      no-repeat center;
+    background-size: cover;
+    z-index: 91;
+    border-radius: 90px;
+  }
