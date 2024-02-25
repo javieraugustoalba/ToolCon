@@ -1,9 +1,11 @@
 import React from 'react';
-import '../../components/Styles.css';
+import './RequestToolStoreKeeper.css';
+
+
 
 export default function RequestToolStoreKeeper() {
   return (
-    <div className='rental-info'>
+    <div className='rental-infos color-rtsk'>
       <div className='rental-info-1'>
         <span className='tool-requests'>Solicitudes de Herramienta</span>
         <span className='new-requests-made'>
@@ -12,66 +14,56 @@ export default function RequestToolStoreKeeper() {
       </div>
       <div className='flex-row-ec'>
         <div className='pick-up'>
-          <div className='mark'>
-            <div className='mark-2' />
-          </div>
-          <span className='assign'>Asignar</span>
-        </div>
-        <span className='return'>Devolver</span>
-        <div className='mark-3'>
-          <div className='mark-4' />
+        <form>
+          <label className='assign'>
+            <input type="radio" name="acciones" value="Asignar" className='mark'/> Asignar
+          </label>
+          <label className='return'>
+            <input type="radio" name="acciones" value="Devolver" className='mark'/> Devolver
+          </label>
+        </form>
         </div>
       </div>
       <div className='flex-row-ff'>
         <div className='locations'>
-          <span className='tool'>Herramienta</span>
-          <div className='select-city'>
-            <div className='bg' />
-            <span className='select'>Seleccionar</span>
-            <div className='vuesax-outline-arrow-down'>
-              <div className='vuesax-outline-arrow-down-5' />
-            </div>
-          </div>
+          <label htmlFor="tipos" className='tool'>Herramienta</label>
+          <select id="tipos" name="tipos" className='select-city'>
+            <option value="herramienta" className='select'>Seleccionar</option>
+            <option value="herramienta">...</option>
+          </select>
         </div>
-        <div className='date'>
-          <span className='operator'>Operario</span>
-          <div className='select-date'>
-            <div className='bg-6' />
-            <span className='select-7'>Seleccionar</span>
-            <div className='vuesax-outline-arrow-down-8'>
-              <div className='arrow-down' />
-            </div>
-          </div>
+        <div>
+          <label htmlFor="tipos" className='operator'>Operario</label>
+          <select id="tipos" name="tipos" className='select-city'>
+            <option value="operario" className='select'>Seleccionar</option>
+            <option value="operario">...</option>
+          </select>
         </div>
       </div>
-      <div className='flex-row-bac'>
-        <div className='time'>
-          <span className='estado'>Estado</span>
-          <div className='select-your-time'>
-            <span className='seleccionar'>Seleccionar</span>
-            <div className='bg-9' />
+      <div className='flex-row-ff'>
+        <div className='locations'>
+          <label className='estado'>Estado</label>
+          <span className='mostrar-estado'>Text...</span>
+        </div>
+        <div className='locations'>
+          <label className='codigo-de-la-herramienta'>Código de la Herramienta</label>
+          <div className='marco-ingresar-herramienta'>
+            <input className='ingresar-codigo' placeholder='Ingresar codigo' />
           </div>
         </div>
-        <div className='time-a'>
-          <span className='codigo-de-la-herramienta'>
-            Código de la Herramienta
-          </span>
-          <div className='select-your-time-b'>
-            <span className='no-seleccionado'>No seleccionado</span>
-            <div className='bg-c' />
+        <div>
+            <button className='bottonloco'>
+              <span>Asignar Herramienta</span>
+            </button>
           </div>
-        </div>
       </div>
-      <div className='drop-off' />
+      
+      {/*<div className='drop-off' />
       <span className='fecha-de-asignacion-entrega'>
         Fecha de Asignación/Entrega
-      </span>
-      <div className='flex-row-c'>
-        <div className='bg-d' />
-        <button className='button-rent'>
-          <span className='asignar-herramienta'>Asignar Herramienta</span>
-        </button>
-      </div>
+      </span>*/}
+      
+      
     </div>
   );
-}
+};

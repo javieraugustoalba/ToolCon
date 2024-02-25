@@ -1,16 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../../components/Styles.css';
+import './LeftNav.css'
 
 export default function LeftNav() {
   return (
     <div className='box'>
 
       <div className='section'>
-        <span className='text'>M A I N M E N U</span>
+        <span className='text'>M A I N  M E N U</span>
       </div>
       <div>
-        <NavLink to="/dashboard" className='navLink'>
+        <NavLink to="/dashboard">
         <div className='section-1'>
               <div className='img' />
             <span className='text-2'>Dashboard</span>
@@ -18,7 +19,7 @@ export default function LeftNav() {
         </NavLink>
       </div>
       <div>
-        <NavLink to="/tool-management" className='navLink'>
+        <NavLink to="/tool-management">
         <div className='section-1'>
           <div className='img-2' />
             <span className='text-2'>Gestión de Herramienta</span>
@@ -26,7 +27,7 @@ export default function LeftNav() {
         </NavLink>
       </div>
       <div>
-        <NavLink to="/workers-management" className='navLink'>
+        <NavLink to="/workers-management">
           <div className='section-1'>
             <div className='img-3' />
             <span className='text-2'>Gestión de Operarios</span>
@@ -34,7 +35,7 @@ export default function LeftNav() {
         </NavLink>
       </div>
       <div>
-      <NavLink to="/reports" className='navLink'>
+      <NavLink to="/reports">
         <div className='section-1'>
             <div className='img-4' />
             <span className='text-2'>Reportes</span>
@@ -44,11 +45,11 @@ export default function LeftNav() {
       <div className='margen-nav'>
         <div className='box-6'>
           <div className='img-5' />
-          <span className='center-help'>Centro de ayuda</span>
+          <a className='center-help'>Centro de ayuda</a>
         </div>
         <div className='box-6'>
             <div className='img-6' />
-          <span className='configuration'>Configuracion</span>
+          <a className='configuration'>Configuracion</a>
         </div>
       </div>
 

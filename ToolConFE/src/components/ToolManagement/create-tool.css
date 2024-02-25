@@ -323,9 +323,6 @@
     z-index: 24;
     border-radius: 10px;
   }
-  .box-4 {
-
-  }
   .address {
     display: flex;
     flex-direction: column;
@@ -584,7 +581,7 @@
     background-size: 100% 100%;
     z-index: 45;
   }
-  .button-rent {
+  /*.button-rent-create {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -600,7 +597,8 @@
     border: none;
     z-index: 43;
     border-radius: 4.197px;
-  }
+    
+  }*/
   .agregar {
     flex-shrink: 0;
     flex-basis: auto;
