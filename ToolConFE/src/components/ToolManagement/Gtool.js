@@ -9,7 +9,7 @@ const toolsData = [
     // ... más datos
   ];
   
-  const Home = () => {
+  const Gtool = () => {
     return (
       <div className="gherramientas-container">
         <h1 className="gherramientas-heading">Gestión de Herramientas</h1>
@@ -43,22 +43,43 @@ const toolsData = [
             </tbody>
           </table>
           <button className="botoncrear">
-                <span>Crear</span>
+            <span>Crear</span>
           </button>
         </div>
 
 
         <div className="sherramientas-container">
-              <div>
-                <h2 className="title-solicitud">Solicitudes de Herramietas</h2>
-                <p className="colorrojo">Realize Consultas</p>
-              </div>
-              <div >
-                <h2 className="h-soli">Herramientas</h2>
-              </div>
+          <div>
+            <h2 className="title-solicitud">Solicitudes de Herramientas</h2>
+            <p className="colorrojo">Realice Consultas</p>
+          </div>
+          <div>
+            <h2 className="h-soli">Herramientas</h2>
+            <select className="select-soli">
+              <option>...</option>
+              <option>...</option>
+            </select>
+          </div>
+          <div className="celect-soli">
+            <h2 className="e-soli">Estado</h2>
+            <h2 className="e-soli">Codigo de la Herramienta</h2>
+          </div>
+          <div className="selecontent"> {/* Añadido un contenedor adicional */}
+              <select className="select-soli">
+                <option>...</option>
+                <option>...</option>
+              </select>
+              <select className="select-soli">
+                <option>...</option>
+                <option>...</option>
+              </select>
+          </div>
+          <button className="botonsolicitud">
+            <span>Generar Solicitud</span>
+          </button>
         </div>
       </div>
     );
   };
   
-  export default Home;
+  export default Gtool;

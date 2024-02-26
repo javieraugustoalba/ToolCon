@@ -99,7 +99,7 @@
 .sherramientas-container {
     background-color: #ffffff;
     height: 440px;
-    width: 40%;
+    width: 870px;
     top: 100px;
     left: 0px;
     font-family: Plus Jakarta Sans, var(--default-font-family);
@@ -124,4 +124,47 @@
 
     font-size: 16px;
     padding: 24px;
+    padding-bottom: 16px;
   }
+
+  .select-soli {
+    font-size: 16px;
+    height: 56px;
+    width: 386px;
+    outline: none;
+    border: none;
+    background-color: #f4f5f7;
+    margin-left: 34px;
+    border-radius: 10px;
+  }
+  .e-soli{
+    width: 400px;
+    font-size: 16px;
+    padding: 24px;
+    padding-bottom: 16px;
+    margin-left: 14px;
+  }
+
+  .celect-soli {
+    display: flex;
+    align-items: center;
+  }
+
+  .botonsolicitud {
+    position: relative;
+    bottom: 230px;
+    right: 200px;
+    margin-left:86%;
+    height: 54px;
+    width: 212px;
+    background-color: #3563E9;
+    border: none;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 20px;
+  }
+
+  .botoncrear:hover, .botonsolicitud:hover {
+    background: #1e47c3;
+  }
+  
