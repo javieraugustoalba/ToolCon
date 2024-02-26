@@ -64,7 +64,7 @@ function Login() {
                 onChange={(e) => setUsername(e.target.value)}
                 pattern="[a-zA-Z0-9]+" title="Solo se permiten letras y números"
                 maxLength={50}
-                className='rectangle1 texto'
+                className='rectangle1 texto login-input'
                 placeholder="usuario"
                 />
                 
@@ -76,13 +76,13 @@ function Login() {
                 onChange={(e) => setPassword(e.target.value)}
                 pattern="[a-zA-Z0-9]+" title="Solo se permiten letras y números"
                 maxLength={50}
-                className='rectangle2 texto'
+                className='rectangle2 texto login-input'
                 placeholder="password"
                 />
 
             </div>
             <br/>
-            <button type="submit" className='buttonRental fullWidthButton ingresar' onClick={handleLogin}>
+            <button type="submit" className='buttonRental fullWidthButton ingresar login-button' onClick={handleLogin}>
             Ingresar
             </button>
             </form>

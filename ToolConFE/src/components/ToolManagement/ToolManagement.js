@@ -5,6 +5,7 @@ import RequestWorkersStoreKeeper from '../WorkersManagement/WorkersManagement';
 import CreateTool from './CreateTool'
 import Header from '../Header/HeaderIconos';
 import Footer from '../Footer/Footer';
+import Gtool from './Gtool'
 
 function ToolManagement() {
     return (
@@ -13,7 +14,8 @@ function ToolManagement() {
             <div className='main-container'>
                 <LeftNav></LeftNav>
                 <div className='flex-column-a'>
-                    <CreateTool></CreateTool>
+                    {/*<CreateTool></CreateTool>*/}
+                    <Gtool></Gtool>
                 </div>
             </div>
             <Footer></Footer>

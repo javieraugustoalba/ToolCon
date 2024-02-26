@@ -1,0 +1,127 @@
+/* Gtool.css */
+
+.gherramientas-container {
+    background-color: #ffffff;
+    height: 600px;
+    width: 100%;
+    padding-top: 20px;
+    font-family: Plus Jakarta Sans, var(--default-font-family);
+    border-bottom: solid #f1f1f1 5px;
+
+  }
+  
+  .gherramientas-heading {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 24px;
+    margin-top: 24px;
+  }
+  
+  .gherramientas-table-container {
+    background-color: #ffffff;
+    margin: 60px;
+    margin-bottom: 63px;
+    /*border: 1px solid #ff0000;*/
+    width: 75%;
+    height: 400px;
+    overflow: auto;
+    
+  }
+  
+  .gherramientas-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+
+
+  }
+  
+  .gherramientas-table th,
+  .gherramientas-table td {
+  padding: 10px;
+  border-top: solid white 10px;
+  
+}
+.gherramientas-table th{
+    height: 66px;
+}
+  
+  
+.gherramientas-table-color {
+    background: #EFF3FD;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .gherramientas-table-row-two {
+    color: #85A8F8;
+
+  }
+  
+  .gherramientas-button {
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+    height: 24px;
+    width: 24px;
+    border-radius: 3px;
+    margin-top: 5px; /* Añade un margen superior */
+    display: inline-block; /* Evita que los botones se superpongan */
+  }
+  
+  .gherramientas-img {
+    height: 24px;
+    width: 24px;
+  }
+  
+  .botoncrear {
+    margin-left:86%;
+    margin-top: 25px;
+    height: 54px;
+    width: 118px;
+    background-color: #3563E9;
+    border: none;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 20px;
+  }
+  .g-border-left {
+   border-top-left-radius: 20px;
+   border-bottom-left-radius: 20px;
+  }
+  .g-border-right{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+   }
+
+.sherramientas-container {
+    background-color: #ffffff;
+    height: 440px;
+    width: 40%;
+    top: 100px;
+    left: 0px;
+    font-family: Plus Jakarta Sans, var(--default-font-family);
+    border-radius: 10px;
+  }
+  .title-solicitud {
+    font-size: 20px;
+    padding: 24px;
+    padding-bottom: 2px;
+  }
+
+  .colorrojo {
+    color: #90A3BF;
+    font-size: 14px;
+    left: 15px;
+    padding: 24px;
+    padding-top: 2px;
+    letter-spacing: 1px;
+  }
+
+  .h-soli{
+
+    font-size: 16px;
+    padding: 24px;
+  }
