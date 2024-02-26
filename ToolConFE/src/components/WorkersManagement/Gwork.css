@@ -1,0 +1,105 @@
+/* Gtool.css */
+
+.wherramientas-container {
+    background-color: #ffffff;
+    height: 600px;
+    width: 100%;
+    padding-top: 20px;
+    font-family: Plus Jakarta Sans, var(--default-font-family);
+    border-bottom: solid #f1f1f1 5px;
+
+  }
+  
+  .wworkers-heading {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 24px;
+    margin-top: 24px;
+  }
+  
+  .wworkers-table-container {
+    background-color: #ffffff;
+    margin: 60px;
+    margin-bottom: 63px;
+    /*border: 1px solid #ff0000;*/
+    width: 40%;
+    height: 400px;
+    overflow: auto;
+    
+  }
+  
+  .wherramientas-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+
+
+  }
+  
+  .wherramientas-table th,
+  .wherramientas-table td {
+  padding: 10px;
+  border-top: solid white 10px;
+  
+}
+.gherramientas-table th{
+    height: 66px;
+}
+  
+  
+.wherramientas-table-color {
+    background: #EFF3FD;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .wherramientas-table-row-two {
+    color: #85A8F8;
+
+  }
+  
+  .wherramientas-button {
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+    height: 24px;
+    width: 24px;
+    border-radius: 3px;
+    margin-top: 5px; /* Añade un margen superior */
+    display: inline-block; /* Evita que los botones se superpongan */
+  }
+  
+  .wherramientas-img {
+    height: 24px;
+    width: 24px;
+  }
+  
+  .wbotoncrear {
+    position: relative;
+    align-content: center;
+    margin-left:65%;
+    margin-top: 25px;
+    width: 226px;
+    height: 54px;
+    background-color: #3563E9;
+    border: none;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 20px;
+  }
+  .w-border-left {
+   border-top-left-radius: 20px;
+   border-bottom-left-radius: 20px;
+  }
+  .w-border-right{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 80px;
+   }
+
+   .wbotoncrear:hover, .botonsolicitud:hover {
+    background: #1e47c3;
+  }
+  
