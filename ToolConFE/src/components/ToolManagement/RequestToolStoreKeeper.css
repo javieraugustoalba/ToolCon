@@ -433,6 +433,7 @@ input[type="radio"] {
   height: 40px;
   background: #3563E9;
   border-radius: 4px;
+  border: none;
 
 }
 
@@ -444,4 +445,5 @@ input[type="radio"] {
   z-index: 34;
   overflow: hidden;
   border-radius: 10px;
+  
 }
