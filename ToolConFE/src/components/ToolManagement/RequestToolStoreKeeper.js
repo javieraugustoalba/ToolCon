@@ -130,7 +130,7 @@ export default function RequestToolStoreKeeper() {
         <div className='flex-row-ff'>
           <div className='locations'>
             <label className='estado'>Estado</label>
-            <span className='mostrar-estado'>Text...</span> {/* Adjust based on state if needed */}
+            <span className='mostrar-estado'>Text...</span> {/* Adjust  based on state if needed */}
           </div>
           <div className='locations'>
             <label className='codigo-de-la-herramienta'>Código de la Herramienta</label>
