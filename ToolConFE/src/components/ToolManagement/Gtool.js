@@ -2,6 +2,9 @@ import React from "react";
 import "./Gtool.css"
 import modificar from './assets/modificar.png'
 import eliminar from './assets/eliminar.png'
+import { NavLink } from "react-router-dom";
+
+
 
 const toolsData = [
     { id: 1, name: 'Martillo', brand: 'MarcaA', purchaseDate: '01/01/2022', usedTime: '2 años', cost: 20, status: 'Disponible' },
@@ -42,9 +45,11 @@ const toolsData = [
               ))}
             </tbody>
           </table>
+          <NavLink to={"/create-tool"}>
           <button className="botoncrear">
             <span>Crear</span>
           </button>
+          </NavLink>
         </div>
 
 

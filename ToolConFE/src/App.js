@@ -7,6 +7,7 @@ import ToolManagement from './components/ToolManagement/ToolManagement';
 import Reports from './components/Reports/Reports';
 import CreateTool from './components/ToolManagement/CreateTool';
 import LeftNav from './components/LeftNav/LeftNav';
+
 function App() {
   return (
     <Router>

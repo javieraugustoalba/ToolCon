@@ -1,15 +1,12 @@
-import {useEffect } from 'react';
-import {useNavigate} from 'react-router-dom'; 
+import React from 'react'; // Removed {useState} because it's not used
 import './tooltop5.css';
-import LeftNav from '../LeftNav/LeftNav';
 import RequestToolStoreKeeper from '../ToolManagement/RequestToolStoreKeeper';
 import RequestWorkersStoreKeeper from '../WorkersManagement/RequestWorkersStoreKeeper';
 import Header from '../Header/HeaderIconos';
 import Footer from '../Footer/Footer';
-import UseValidateToken from '../Api/token-api';
+import LeftNav from '../LeftNav/LeftNav';
 
 function Dashboard() {
-    UseValidateToken(); // This will now handle session validation
     return (
         <>  
             <Header></Header>
