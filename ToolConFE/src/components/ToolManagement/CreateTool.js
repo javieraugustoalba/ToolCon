@@ -1,8 +1,15 @@
 import React from 'react';
 import './create-tool.css';
+import Header from '../Header/HeaderIconos';
+import Footer from '../Footer/Footer';
+import LeftNav from '../LeftNav/LeftNav';
+import Gtool from './Gtool'
 
 export default function CreateTool() {
   return (
+    <>
+    <Header></Header>
+    <LeftNav></LeftNav>
     <div className='main-container-gestion-herramientas'>
       <span className='gestion-de-herramientas'></span>
 
@@ -79,5 +86,7 @@ export default function CreateTool() {
         <span className='agregar'>Agregar</span>
       </button>
     </div>
+    <Footer></Footer>
+    </>
   );
 }
