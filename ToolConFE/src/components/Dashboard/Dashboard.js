@@ -9,7 +9,7 @@ import Footer from '../Footer/Footer';
 import UseValidateToken from '../Api/token-api';
 
 function Dashboard() {
-    UseValidateToken(); // This will now handle session validation
+    UseValidateToken(); //  This will now handle session validation
     return (
         <>  
             <Header></Header>
