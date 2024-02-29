@@ -5,6 +5,7 @@ import RequestWorkersStoreKeeper from '../WorkersManagement/RequestWorkersStoreK
 import Header from '../Header/HeaderIconos';
 import Footer from '../Footer/Footer';
 import LeftNav from '../LeftNav/LeftNav';
+import UseValidateToken from '../Api/token-api'
 
 function Dashboard() {
     UseValidateToken(); //  This will now handle session validation
