@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer';
 import LeftNav from '../LeftNav/LeftNav';
 
 function Dashboard() {
+    UseValidateToken(); //  This will now handle session validation
     return (
         <>  
             <Header></Header>
