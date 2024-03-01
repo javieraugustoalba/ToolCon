@@ -11,11 +11,12 @@ export default function RequestToolStoreKeeper() {
   const [selectedTool, setSelectedTool] = useState('');
   const [operators, setOperators] = useState([]);
   const [selectedOperator, setSelectedOperator] = useState('');
+  const [selectedToolEstadoID, setSelectedToolEstadoID] = useState('');
+  const [selectedToolHerramientaId, setSelectedToolHerramientaId] = useState('');
+
+
 
   useEffect(() => {
-    const fetchTools = async () => {
-      // Fetch tools as before
-    };
     const fetchOperators = async () => {
       try {
         const response = await fetch('https://localhost:7238/api/Operarios');
@@ -29,7 +30,6 @@ export default function RequestToolStoreKeeper() {
       }
     };
 
-    fetchTools();
     fetchOperators();
   }, []);
   // Fetch tools data from the API
@@ -49,6 +49,20 @@ export default function RequestToolStoreKeeper() {
 
     fetchTools();
   }, []);
+
+
+  // Adjusted handler for tool selection
+  const handleToolChange = (e) => {
+    const toolId = e.target.value;
+    setSelectedTool(toolId);
+
+    // Find the selected tool from the tools array
+    const tool = tools.find(t => t.herramientaId.toString() === toolId);
+    if (tool) {
+      setSelectedToolEstadoID(tool.estadoID === 1 ? "Disponible" : "En uso"); // Update EstadoID based on selected tool
+      setSelectedToolHerramientaId(tool.herramientaId); // Update HerramientaId based on selected tool
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
@@ -105,14 +119,13 @@ export default function RequestToolStoreKeeper() {
         <div className='flex-row-ff'>
           <div className='locations'>
             <label htmlFor="tool" className='tool'>Herramienta</label>
-            <select id="tool" name="tool" className='select-city' value={selectedTool} onChange={(e) => setSelectedTool(e.target.value)}>
+            <select id="tool" name="tool" className='select-city' value={selectedTool} onChange={handleToolChange}>
               <option value="" className='select'>Seleccionar</option>
               {tools.map((tool) => (
-                <option key={tool.HerramientaId} value={tool.HerramientaId}>
+                <option key={tool.herramientaId} value={tool.herramientaId}>
                   {tool.nombre} - {tool.marca}
                 </option>
               ))}
-
             </select>
           </div>
           <div>
@@ -121,7 +134,7 @@ export default function RequestToolStoreKeeper() {
               <option value="" className='select'>Seleccionar</option>
               {operators.map(operator => (
                 <option key={operator.OperatorId} value={operator.OperatorId}>
-                  {operator.nombre} {operator.apellido} 
+                  {operator.nombre} {operator.apellido}
                 </option>
               ))}
             </select>
@@ -130,13 +143,11 @@ export default function RequestToolStoreKeeper() {
         <div className='flex-row-ff'>
           <div className='locations'>
             <label className='estado'>Estado</label>
-            <span className='mostrar-estado'>Text...</span> {/* Adjust  based on state if needed */}
+            <span className='mostrar-estado'>{selectedToolEstadoID}</span>
           </div>
           <div className='locations'>
             <label className='codigo-de-la-herramienta'>Código de la Herramienta</label>
-            <div className='marco-ingresar-herramienta'>
-              <input className='ingresar-codigo' placeholder='Ingresar codigo' onChange={(e) => setToolCode(e.target.value)} />
-            </div>
+            <span className='mostrar-estado'>{selectedToolHerramientaId}</span>
           </div>
           <div>
             <button type="submit" className='bottonloco'>
