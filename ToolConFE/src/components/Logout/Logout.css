@@ -1,0 +1,35 @@
+.logout-container {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff; /* Color de fondo del componente */
+    padding: 10px; /* Espaciado interno del componente */
+    border: 1px solid #ccc; /* Borde del componente */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra del componente */
+    z-index: 999; /* Asegura que el componente esté sobre otros elementos */
+    height: 100px;
+  }
+.logout-container button {
+    position: relative;
+    border: none;
+    background-color: rgb(212, 68, 68);
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 3px;
+    height: 30px;
+    width: 90px;
+    top: 35%;
+}
+.logout-container button:hover {
+    position: relative;
+    border: none;
+    background-color: rgb(212, 68, 68);
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 3px;
+    height: 30px;
+    width: 90px;
+    top: 35%;
+    scale: 1.05;
+}
