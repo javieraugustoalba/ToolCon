@@ -2,6 +2,7 @@ import React from 'react';
 import "./Gwork.css"
 import modificar from '../ToolManagement/assets/modificar.png'
 import eliminar from '../ToolManagement/assets/eliminar.png'
+import { NavLink } from 'react-router-dom';
 
 const workersData = [
   { id: 1, name: 'Martillo', code: '35464-AH' },
@@ -34,9 +35,11 @@ const Gwork = () => {
             ))}
           </tbody>
         </table>
+        <NavLink to={"/create-operator"}>
         <button className="wbotoncrear">
           <span>Agregar Operario</span>
         </button>
+        </NavLink>
       </div>
     </div>
   );

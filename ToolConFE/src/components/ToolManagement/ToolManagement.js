@@ -14,8 +14,8 @@ function ToolManagement() {
             <div className='main-container'>
                 <LeftNav></LeftNav>
                 <div className='flex-column-a'>
+                    <Gtool></Gtool>       
                     {/*<CreateTool></CreateTool>*/}
-                    <Gtool></Gtool>
                 </div>
             </div>
             <Footer></Footer>

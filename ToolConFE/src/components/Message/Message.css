@@ -1,0 +1,40 @@
+.fondo-mensaje {
+    background: #ffffff;
+    font-size: 20px;
+    height: 400px;
+}
+.mensaje-centro {
+    font-size: 36px;
+    display: flex;
+    text-align: center;
+    height: 90px;
+    width: 470px;
+    transform: translate(100%, 100%)
+}
+.mensaje-botones{
+    position: relative;
+    display: flex;
+    align-content:  center;
+    height: 90px;
+    width: 470px;
+    top: 100px;
+    margin: 25px;
+}
+.mensaje-botones-agregar {
+    position: relative;
+    border: none;
+    color: #ffffff;
+    background: #3563e9;
+    height: 54px;
+    width: 311px;
+    left: 500px;
+}
+.mensaje-botones-regresar {
+    position: relative;
+    border: none;
+    color: #ffffff;
+    background: #3563e9;
+    height: 54px;
+    width: 117px;
+    left: 470px;
+}

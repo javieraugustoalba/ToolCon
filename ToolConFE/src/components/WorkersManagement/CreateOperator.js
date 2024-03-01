@@ -1,12 +1,11 @@
 import React from 'react';
-import './create-tool.css';
 import Header from '../Header/HeaderIconos';
 import Footer from '../Footer/Footer';
 import LeftNav from '../LeftNav/LeftNav';
-import Gtool from './Gtool'
 import { NavLink } from 'react-router-dom';
 
-export default function CreateTool() {
+
+export default function CreateOperator() {
   return (
     <>
       <div>
@@ -15,36 +14,30 @@ export default function CreateTool() {
           <LeftNav></LeftNav>
           <div className='flex-column-a'>
             <div className='main-container-gestion-herramientas'>
-              <span className='gestion-de-herramientas'>Gestion de Herramientas</span>
+              <span className='gestion-de-herramientas'>Gestion de Operarios</span>
 
               <div className='billing-info'>
                 <div className='billing-info-1'>
-                  <span className='crear-herramienta'>Crear Herramienta</span>
+                  <span className='crear-herramienta'>Crear Operario</span>
                   <span className='ingrese-los-datos'>
-                    Ingrese los Datos de la Nueva Herramienta
+                    Ingrese los Datos del operario que va a usar ToolCon
                   </span>
                 </div>
                 <div className='flex-row-cdc'>
                   <div className='name'>
                     <span className='nombre-de-la-herramienta'>
-                      Nombre de la Herramienta
+                      Nombre del Operario
                     </span>
                     <div className='your-name'>
-                      <input className='ej-tool' placeholder='Ej; Martillo'></input>
+                      <input className='ej-tool' placeholder='Ej; Armando'></input>
                       <div className='bg' />
                     </div>
                   </div>
                   <div className='phone-number'>
-                    <span className='fecha-de-compra'>Fecha de Compra</span>
+                    <span className='fecha-de-compra'>Apellido</span>
                     <div className='select-your-date'>
                       <div className='bg-2' />
-                      <select className='seleccionar'>
-                        <option value='' disabled>Select an option</option>
-                        <option value='option1'>Option 1</option>
-                        <option value='option2'>Option 2</option>
-                        <option value='option3'>Option 3</option>
-
-                      </select>
+                      <input className='ej-tool' placeholder='Ej: Suarez'></input>
                       <div className='vuesax-outline-arrow-down'>
                         <div className='vuesax-outline-arrow-down-3' />
                       </div>
@@ -53,36 +46,28 @@ export default function CreateTool() {
                 </div>
                 <div className='flex-row-cac'>
                   <div className='town-or-city'>
-                    <span className='tiempo-de-uso'>Tiempo de Uso </span>
+                    <span className='tiempo-de-uso'>Contraseña </span>
                     <div className='town-or-city-4'>
-                      <input className='ej-tool' placeholder='EJ:2 años'></input>
                       <div className='bg-5' />
+                      <input className='ej-tool' placeholder='EJ:123546password'></input>
                     </div>
                   </div>
                   <div className='box-4'>
                     <div className='address'>
-                      <span className='costo'>Costo</span>
+                      <span className='costo'>RollID</span>
                       <div className='address-6'>
-                        <input className='ej-tool' placeholder='EJ:50000'></input>
+                        <input className='ej-tool' placeholder='EJ:5418'></input>
                         <div className='bg-7' />
                       </div>
-                    </div>
-                    <div className='address-8'>
-                      <span className='marca'>Marca</span>
-                      <div className='address-9'>
-                        <input className='ej-tool' placeholder='EJ:50000'></input>
-                        <div className='bg-b' />
-                      </div>
-                    </div>
-                    
+                    </div>               
                   </div>
                 </div>
               </div>
               <div className='review'>
                 <div className='address-c'>
-                  <span className='estado-herramienta'>Estado de la Herramienta</span>
+                  <span className='estado-herramienta'>Correo Electronico</span>
                   <div className='address-d'>
-                    <span className='ej-en-uso'>EJ: En uso</span>
+                    <input className='ej-tool' placeholder='EJ:hackme@inorca.com'></input>
                     <div className='bg-e' />
                   </div>
                 </div>
@@ -94,7 +79,7 @@ export default function CreateTool() {
                   </div>
                 </div>
               </div>
-              <NavLink to="/m_c_t">
+              <NavLink to={'/m_c_o'}>
               <button className='agregartool'>
                 <span>Agregar</span>
               </button>

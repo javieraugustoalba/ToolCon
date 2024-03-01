@@ -270,6 +270,7 @@ height:200px;
   right: 311px;
   left: 286px;
   z-index: 74;
+  
 }
 
 
@@ -285,4 +286,9 @@ height:200px;
   color: red; /* Red text for the error message */
   margin-top: 10px; /* Space between the button and the error message */
   text-align: center; /* Center the error message */
+}
+
+.alt {
+  z-index: 1000;
+  border: solid red 5px;
 }
