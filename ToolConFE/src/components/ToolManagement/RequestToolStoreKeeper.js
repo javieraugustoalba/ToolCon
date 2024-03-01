@@ -2,19 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './RequestToolStoreKeeper.css';
 
 export default function RequestToolStoreKeeper() {
-  // State hooks for managing form inputs
-  const [action, setAction] = useState('');
-  const [tool, setTool] = useState('');
-  const [operator, setOperator] = useState('');
-  const [toolCode, setToolCode] = useState('');
   const [tools, setTools] = useState([]);
   const [selectedTool, setSelectedTool] = useState('');
   const [operators, setOperators] = useState([]);
   const [selectedOperator, setSelectedOperator] = useState('');
   const [selectedToolEstadoID, setSelectedToolEstadoID] = useState('');
   const [selectedToolHerramientaId, setSelectedToolHerramientaId] = useState('');
-
-
 
   useEffect(() => {
     const fetchOperators = async () => {
@@ -67,11 +60,9 @@ export default function RequestToolStoreKeeper() {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission behavior
 
-    // Assuming tool and operator state variables hold the IDs of the selected tool and operator
-    const asignacionData = {
-      HerramientaID: tool, // Assuming this state holds the selected tool's ID
-      UsuarioID: operator, // Assuming this state holds the selected operator's ID
-      // Add any other properties expected by your API
+    const prestamo = {
+      HerramientaID: parseInt(selectedTool, 10), // Ensure integer value
+      UsuarioID: parseInt(selectedOperator, 10), // Ensure integer value
     };
 
     try {
@@ -81,7 +72,7 @@ export default function RequestToolStoreKeeper() {
           'Content-Type': 'application/json',
           // Include other headers as needed, such as Authorization for JWT
         },
-        body: JSON.stringify(asignacionData)
+        body: JSON.stringify(prestamo) // Directly sending the prestamo object
       });
 
       if (!response.ok) {
@@ -90,14 +81,13 @@ export default function RequestToolStoreKeeper() {
 
       const data = await response.json();
       console.log('Success:', data);
-
       // Handle success (e.g., show a success message, redirect, etc.)
     } catch (error) {
       console.error('Error during the API call:', error);
       // Handle error (e.g., show an error message)
     }
   };
-
+  console.log(selectedToolEstadoID); // Add this line
 
   return (
     <div className='rental-infos color-rtsk'>
@@ -105,16 +95,6 @@ export default function RequestToolStoreKeeper() {
         <div className='rental-info-1'>
           <span className='tool-requests'>Solicitudes de Herramienta</span>
           <span className='new-requests-made'>Nuevas Solicitudes Realizadas</span>
-        </div>
-        <div className='flex-row-ec'>
-          <div className='pick-up'>
-            <label className='assign'>
-              <input type="radio" name="acciones" value="Asignar" className='mark' onChange={(e) => setAction(e.target.value)} /> Asignar
-            </label>
-            <label className='return'>
-              <input type="radio" name="acciones" value="Devolver" className='mark' onChange={(e) => setAction(e.target.value)} /> Devolver
-            </label>
-          </div>
         </div>
         <div className='flex-row-ff'>
           <div className='locations'>
@@ -133,7 +113,7 @@ export default function RequestToolStoreKeeper() {
             <select id="operator" name="operator" className='select-city' value={selectedOperator} onChange={(e) => setSelectedOperator(e.target.value)}>
               <option value="" className='select'>Seleccionar</option>
               {operators.map(operator => (
-                <option key={operator.OperatorId} value={operator.OperatorId}>
+                <option key={operator.usuarioID} value={operator.usuarioID}>
                   {operator.nombre} {operator.apellido}
                 </option>
               ))}
@@ -150,8 +130,10 @@ export default function RequestToolStoreKeeper() {
             <span className='mostrar-estado'>{selectedToolHerramientaId}</span>
           </div>
           <div>
-            <button type="submit" className='bottonloco'>
-              <span>Asignar Herramienta</span>
+            <button type="submit"
+              className={`bottonloco ${selectedToolEstadoID === "En uso" ? 'disabled' : ''}`} 
+              disabled={(selectedToolEstadoID === "En uso")}>
+              <span>{selectedToolEstadoID === "En uso" ? 'Herramienta Asignada' : 'Asignar Herramienta'}</span>
             </button>
           </div>
         </div>

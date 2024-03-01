@@ -47,27 +47,40 @@ public class HerramientasController : ControllerBase
 
 	// POST: api/Herramientas/asignarHerramienta
 	[HttpPost("asignarHerramienta")]
-	public async Task<IActionResult> AsignarHerramienta([FromBody] Prestamo asignacion)
+	public async Task<IActionResult> AsignarHerramienta([FromBody] Prestamo prestamo)
 	{
-		if (asignacion == null)
+		if (prestamo == null || prestamo.HerramientaID <= 0)
 		{
 			return BadRequest("Invalid assignment data");
 		}
 
 		// Create a new Prestamo record
-		var prestamo = new Prestamo
+		var entity = new Prestamo
 		{
-			HerramientaID = asignacion.HerramientaID,
-			UsuarioID = asignacion.UsuarioID,
+			HerramientaID = prestamo.HerramientaID,
+			UsuarioID = prestamo.UsuarioID,
 			FechaPrestamo = DateTime.Now, // Assuming the loan starts now
 			FechaDevolucion = DateTime.MinValue // Assuming the return date is not set at the time of assignment
 		};
 
 		try
 		{
-			_context.Prestamos.Add(prestamo);
+			_context.Prestamos.Add(entity);
+
+			// Find the Herramienta to update its EstadoID
+			var herramienta = await _context.Herramientas.FirstOrDefaultAsync(h => h.HerramientaId == prestamo.HerramientaID);
+			if (herramienta != null)
+			{
+				herramienta.EstadoID = 2; // Set the EstadoID to 2
+				_context.Herramientas.Update(herramienta);
+			}
+			else
+			{
+				return NotFound($"Herramienta with ID {prestamo.HerramientaID} not found.");
+			}
+
 			await _context.SaveChangesAsync();
-			return Ok(new { Message = "Tool assigned successfully", PrestamoID = prestamo.PrestamoID });
+			return Ok(new { Message = "Tool assigned successfully", PrestamoID = entity.PrestamoID });
 		}
 		catch (Exception ex)
 		{
@@ -75,6 +88,7 @@ public class HerramientasController : ControllerBase
 			return StatusCode(500, "Internal server error: " + ex.Message);
 		}
 	}
+
 
 
 }
