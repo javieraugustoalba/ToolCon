@@ -37,7 +37,7 @@ public class HerramientasController : ControllerBase
 			_context.Herramientas.Add(herramienta);
 			await _context.SaveChangesAsync();
 
-			return CreatedAtAction(nameof(GetHerramientas), new { id = herramienta.HerramientaId}, herramienta);
+			return CreatedAtAction(nameof(GetHerramientas), new { id = herramienta.HerramientaId }, herramienta);
 		}
 		catch (Exception ex)
 		{
@@ -89,6 +89,62 @@ public class HerramientasController : ControllerBase
 		}
 	}
 
+	// GET: api/Herramientas/SolicitudesPendientes
+	[HttpGet("SolicitudesPendientes")]
+	public async Task<ActionResult<IEnumerable<dynamic>>> GetSolicitudesPendientes()
+	{
+		var solicitudes = await _context.Prestamos
+			.Where(p => p.FechaPrestamo == null || p.FechaPrestamo <= new DateTime(1901, 01, 01))
+			.Join(_context.Usuarios,
+				  prestamo => prestamo.UsuarioID,
+				  usuario => usuario.UsuarioID,
+				  (prestamo, usuario) => new
+				  {
+					  UsuarioNombre = usuario.Nombre + " " + usuario.Apellido,
+					  prestamo.HerramientaID,
+					  prestamo.PrestamoID // Incluir PrestamoID aquí
+				  })
+			.Join(_context.Herramientas,
+				  prestamo => prestamo.HerramientaID,
+				  herramienta => herramienta.HerramientaId,
+				  (prestamo, herramienta) => new
+				  {
+					  prestamo.UsuarioNombre,
+					  NombreHerramienta = herramienta.Nombre,
+					  prestamo.PrestamoID // Asegúrate de incluir PrestamoID en el resultado final
+				  })
+			.ToListAsync();
 
+		return solicitudes;
+	}
+
+
+	// POST: api/Herramientas/ActualizarPrestamoYHerramienta/5
+	[HttpPost("ActualizarPrestamoYHerramienta/{prestamoId}")]
+	public async Task<IActionResult> ActualizarPrestamoYHerramienta(int prestamoId)
+	{
+		var prestamo = await _context.Prestamos.FirstOrDefaultAsync(p => p.PrestamoID == prestamoId);
+		if (prestamo == null)
+		{
+			return NotFound("Prestamo not found.");
+		}
+
+		// Actualizar la fecha de préstamo a la fecha actual
+		prestamo.FechaPrestamo = DateTime.Now;
+
+		// Actualizar el estado de la herramienta asociada
+		var herramienta = await _context.Herramientas.FirstOrDefaultAsync(h => h.HerramientaId == prestamo.HerramientaID);
+		if (herramienta != null)
+		{
+			herramienta.EstadoID = 2; // Suponiendo que '2' significa "En Uso"
+		}
+		else
+		{
+			return NotFound("Herramienta not found.");
+		}
+
+		await _context.SaveChangesAsync();
+		return Ok(new { Message = "Prestamo y Herramienta actualizados correctamente." });
+	}
 
 }

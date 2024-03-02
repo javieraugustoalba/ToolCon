@@ -10,9 +10,9 @@ namespace ToolConWebAPI.Models
 		public int HerramientaID { get; set; }
 		public int UsuarioID { get; set; }
 		[Column(TypeName = "date")]
-		public DateTime FechaPrestamo { get; set; }
+		public DateTime? FechaPrestamo { get; set; }
 
 		[Column(TypeName = "date")]
-		public DateTime FechaDevolucion { get; set; }
+		public DateTime? FechaDevolucion { get; set; }
 	}
 }

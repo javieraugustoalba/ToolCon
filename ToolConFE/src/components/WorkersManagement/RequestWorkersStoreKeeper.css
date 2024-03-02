@@ -3,12 +3,12 @@
 /*Titulo*/
 .recent-transaction {
     position: relative;
-    width: 476px;
-    height: 375px;
+    width: 30%;
+    height: 56%;
     margin: 5px 0 0 0;
-    background: #d6e4fd;
-    z-index: 100;
-    overflow: scroll;
+    background: #fdfdfd;
+    overflow-y: scroll;
+    overflow-x:hidden;
     border-radius: 10px;
   }
   
@@ -59,10 +59,7 @@
 
   .div-flex-row-bc /*Da forma*/{
     position: relative;
-    width: 467px;
-    height: 33.393px;
-    margin: 0 0 0 0;
-    z-index: 107;
+
   }
   
   .div-car-name-17 /*Espacio a la imagen*/{
@@ -70,11 +67,7 @@
     flex-direction: column;
     align-items: flex-start;
     flex-wrap: nowrap;
-    gap: 8px;
-    position: absolute;
-    width: 108.895px;
-    height: 33.393px;
-    top: 0;
+    height:20px;
     left: 17.358px;
     z-index: 101;
   }
@@ -125,43 +118,21 @@
     letter-spacing: -0.28px;
     z-index: 94;
   }
-/* contenedor div boton */
 
-  /*.div-price {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    gap: 8px;
-    position: absolute;
-    width: 68.776px;
-    height: 11.82px;
-    top: 2.955px;
-    left: 398.224px;
-  }*/
-    
-
-
-  /* Boton Asignar */
   .button-rent {
-    height: 40px;
-    width: 60px;
-    position: relative;
-    z-index: 100; /* Ajusta según sea necesario */
-    margin-left: 270px;
-    top: -60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: nowrap;
-    gap: 8.393px;
-    position: relative;
     background: #3563e9;
     border: none;
-    border-radius: 4.197px;
+    border-radius: 5px;
+    height: 40px;
+    padding: 10px;
+    float:right;
 }
   .span-asignar {
     color: #ffffff;
+  }
+
+  .div-recent-transaction{
+    height: 20%;
   }
 
   /*Imagenes de los operarios*/

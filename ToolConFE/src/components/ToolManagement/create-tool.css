@@ -572,41 +572,7 @@
     z-index: 45;
     left: 250px;
     bottom: 10px;
-  }/*
-  .button-rent-create {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: nowrap;
-    gap: 8.393px;
-    position: relative;
-    width: 117.508px;
-    height: 53.508px;
-    margin: 32px 0 0 885px;
-    padding: 0 20.984px 0 20.984px;
-    cursor: pointer;
-    background: #3563e9;
-    border: none;
-    z-index: 43;
-    border-radius: 4.197px;
-    
   }
-  .agregar {
-    flex-shrink: 0;
-    flex-basis: auto;
-    position: relative;
-    height: 31px;
-    color: #ffffff;
-    font-family: Plus Jakarta Sans, var(--default-font-family);
-    font-size: 20.983606338500977px;
-    font-weight: 700;
-    line-height: 31px;
-    text-align: left;
-    white-space: nowrap;
-    letter-spacing: -0.63px;
-    background: #3563e9;
-    z-index: 44;
-  }*/
   .agregartool {
     background: #3563e9;
     position: absolute;

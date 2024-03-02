@@ -395,14 +395,7 @@ input[type="radio"] {
   letter-spacing: -0.32px;
   z-index: 66;
 }
-.button-rent /*solicitud herramientas*/{
-  position: absolute;
-  width: 290px;
-  height: 40px;
-  background: #3563e9;
-  border: none;
-  border-radius: 4px;
-}
+
 .asignar-herramienta /*solicitud herramientas*/{
   display: flex;
   align-items: center;
