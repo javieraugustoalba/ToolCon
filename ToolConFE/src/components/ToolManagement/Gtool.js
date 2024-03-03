@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Gtool.css"
 import modificar from './assets/modificar.png'
 import eliminar from './assets/eliminar.png'
@@ -6,13 +6,32 @@ import { NavLink } from "react-router-dom";
 
 
 
-const toolsData = [
-    { id: 1, name: 'Martillo', brand: 'MarcaA', purchaseDate: '01/01/2022', usedTime: '2 años', cost: 20, status: 'Disponible' },
-    { id: 2, name: 'Destornillador', brand: 'MarcaB', purchaseDate: '02/01/2022', usedTime: '2 años', cost: 15, status: 'En uso' },
-    // ... más datos
-  ];
+// const toolsData = [
+//     { id: 1, name: 'Martillo', brand: 'MarcaA', purchaseDate: '01/01/2022', usedTime: '2 años', cost: 20, status: 'Disponible' },
+//     { id: 2, name: 'Destornillador', brand: 'MarcaB', purchaseDate: '02/01/2022', usedTime: '2 años', cost: 15, status: 'En uso' },
+//     // ... más datos
+//   ];
   
   const Gtool = () => {
+    const [toolsData, setToolsData] = useState([]); // Estado para almacenar los datos de las herramientas
+
+    useEffect(() => {
+      const fetchHerramientas = async () => {
+        try {
+          const response = await fetch('https://localhost:7238/api/Herramientas'); // Ajusta la URL según sea necesario
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          setToolsData(data); // Almacena los datos de las herramientas en el estado
+        } catch (error) {
+          console.error("Failed to fetch herramientas:", error);
+        }
+      };
+  
+      fetchHerramientas(); // Llama a la función para cargar los datos de las herramientas
+    }, []);
+
     return (
       <div className="gherramientas-container">
         <h1 className="gherramientas-heading">Gestión de Herramientas</h1>
@@ -31,12 +50,12 @@ const toolsData = [
             <tbody className="gherramientas-table-color">
               {toolsData.map((tool) => (
                 <tr key={tool.id}>
-                  <td className="g-border-left">{tool.name}</td>
-                  <td>{tool.brand}</td>
-                  <td>{tool.purchaseDate}</td>
-                  <td>{tool.usedTime}</td>
-                  <td>${tool.cost}</td>
-                  <td>{tool.status}</td>
+                  <td className="g-border-left">{tool.nombre}</td>
+                  <td>{tool.marca}</td>
+                  <td>{tool.fechaCompra}</td>
+                  <td>{tool.tiempoUsoEstimado}</td>
+                  <td>${tool.costo}</td>
+                  <td>{tool.estadoID === 1 ? "Disponible" : "En Uso"}</td>
                   <td className="g-border-right">
                     <button className="gherramientas-button"><img src={modificar} with="24px" height="24px" /></button>
                     <button className="gherramientas-button"><img src={eliminar} with="24px" height="24px" /></button>

@@ -6,7 +6,7 @@ import './Message.css'
 import { NavLink } from 'react-router-dom';
 
 
-export default function CreateOperator() {
+export default function MessageCreatedTool() {
   return (
 <>
     <div>
