@@ -103,3 +103,10 @@
     background: #1e47c3;
   }
   
+  .button-disabled {
+
+    cursor: not-allowed; /* Shows a 'not allowed' cursor when hovering */
+
+    opacity: 0.2; /* Makes the button look faded */
+  }
+  

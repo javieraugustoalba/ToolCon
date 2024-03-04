@@ -25,7 +25,7 @@ namespace ToolConWebAPI
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
-			// EF Core Fluent API configurations
+
 		}
 	}
 }

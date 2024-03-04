@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from "react-router-dom";
 import './RequestToolStoreKeeper.css';
+import { useNavigate } from 'react-router-dom';
+import MessageCreateOperator from '../../components/Message/M_C_O.js';
 
 export default function RequestToolStoreKeeper() {
   const [tools, setTools] = useState([]);
@@ -9,6 +10,7 @@ export default function RequestToolStoreKeeper() {
   const [selectedOperator, setSelectedOperator] = useState('');
   const [selectedToolEstadoID, setSelectedToolEstadoID] = useState('');
   const [selectedToolHerramientaId, setSelectedToolHerramientaId] = useState('');
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchOperators = async () => {
@@ -44,26 +46,23 @@ export default function RequestToolStoreKeeper() {
     fetchTools();
   }, []);
 
-
-  // Adjusted handler for tool selection
   const handleToolChange = (e) => {
     const toolId = e.target.value;
     setSelectedTool(toolId);
 
-    // Find the selected tool from the tools array
     const tool = tools.find(t => t.herramientaId.toString() === toolId);
     if (tool) {
-      setSelectedToolEstadoID(tool.estadoID === 1 ? "Disponible" : "En uso"); // Update EstadoID based on selected tool
-      setSelectedToolHerramientaId(tool.herramientaId); // Update HerramientaId based on selected tool
+      setSelectedToolEstadoID(tool.estadoID === 1 ? "Disponible" : "En uso"); 
+      setSelectedToolHerramientaId(tool.herramientaId); 
     }
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
+    e.preventDefault(); 
 
     const prestamo = {
-      HerramientaID: parseInt(selectedTool, 10), // Ensure integer value
-      UsuarioID: parseInt(selectedOperator, 10), // Ensure integer value
+      HerramientaID: parseInt(selectedTool, 10), 
+      UsuarioID: parseInt(selectedOperator, 10), 
     };
 
     try {
@@ -71,9 +70,8 @@ export default function RequestToolStoreKeeper() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // Include other headers as needed, such as Authorization for JWT
         },
-        body: JSON.stringify(prestamo) // Directly sending the prestamo object
+        body: JSON.stringify(prestamo)
       });
 
       if (!response.ok) {
@@ -82,14 +80,12 @@ export default function RequestToolStoreKeeper() {
 
       const data = await response.json();
       console.log('Success:', data);
-      // Handle success (e.g., show a success message, redirect, etc.)
+      navigate('/m_c_t');
     } catch (error) {
       console.error('Error during the API call:', error);
-      // Handle error (e.g., show an error message)
     }
   };
-  console.log(selectedToolEstadoID); // Add this line
-
+  console.log(selectedToolEstadoID); 
   return (
     <div className='rental-infos color-rtsk'>
       <form onSubmit={handleSubmit}>
@@ -122,22 +118,24 @@ export default function RequestToolStoreKeeper() {
           </div>
         </div>
         <div className='flex-row-ff'>
-          <div className='locations'>
-            <label className='estado'>Estado</label>
-            <span className='mostrar-estado'>{selectedToolEstadoID}</span>
+        <div className='locations'>
+            <label htmlFor="tool" className='tool'>Herramienta</label>
+            <select id="estadoHerramienta" name="estadoHerramienta" disabled className='select-city'>
+              <option value="" className='select'>{selectedToolEstadoID}</option>
+            </select>
           </div>
           <div className='locations'>
             <label className='codigo-de-la-herramienta'>Código de la Herramienta</label>
-            <span className='mostrar-estado'>{selectedToolHerramientaId}</span>
+            <select id="codigoHerramienta" name="codigoHerramienta" disabled className='select-city'>
+              <option value="" className='select'>{selectedToolHerramientaId}</option>
+            </select>
           </div>
           <div>
-            <NavLink to={'/m_a_t'}>
             <button type="submit"
               className={`bottonloco ${selectedToolEstadoID === "En uso" ? 'disabled' : ''}`} 
               disabled={(selectedToolEstadoID === "En uso")}>
               <span>{selectedToolEstadoID === "En uso" ? 'Herramienta Asignada' : 'Asignar Herramienta'}</span>
             </button>
-            </NavLink>
           </div>
         </div>
       </form>

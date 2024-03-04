@@ -13,7 +13,7 @@ namespace ToolConWebAPI.Models
 		[StringLength(50)]
 		public string Descripcion { get; set; }
 
-		// Relación con Herramientas
+
 		public virtual ICollection<Herramienta> Herramientas { get; set; }
 	}
 }

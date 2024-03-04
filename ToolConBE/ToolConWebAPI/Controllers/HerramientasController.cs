@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ToolConWebAPI; // Replace with the namespace of your DbContext and models
+using ToolConWebAPI; 
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using ToolConWebAPI.Models;
@@ -16,16 +16,16 @@ public class HerramientasController : ControllerBase
 		_context = context;
 	}
 
-	// GET: api/Herramientas
+
 	[HttpGet]
 	public async Task<ActionResult<IEnumerable<Herramienta>>> GetHerramientas()
 	{
 		return await _context.Herramientas.ToListAsync();
 	}
 
-	// POST: api/Herramientas/AgregarHerramientas
+
 	[HttpPost("AgregarHerramientas")]
-	public async Task<ActionResult<Herramienta>> AgregarHerramientas([FromBody] Herramienta herramienta)
+	public async Task<IActionResult> AgregarHerramientas([FromBody] Herramienta herramienta)
 	{
 		if (herramienta == null)
 		{
@@ -34,10 +34,20 @@ public class HerramientasController : ControllerBase
 
 		try
 		{
-			_context.Herramientas.Add(herramienta);
-			await _context.SaveChangesAsync();
+			if (herramienta.HerramientaId != 0)
+			{
 
-			return CreatedAtAction(nameof(GetHerramientas), new { id = herramienta.HerramientaId }, herramienta);
+				_context.Herramientas.Update(herramienta);
+				await _context.SaveChangesAsync();
+				return Ok(new { Message = "Tool updated successfully", HerramientaId = herramienta.HerramientaId });
+			}
+			else
+			{
+
+				_context.Herramientas.Add(herramienta);
+				await _context.SaveChangesAsync();
+				return CreatedAtAction(nameof(GetHerramientas), new { id = herramienta.HerramientaId }, herramienta);
+			}
 		}
 		catch (Exception ex)
 		{
@@ -45,7 +55,8 @@ public class HerramientasController : ControllerBase
 		}
 	}
 
-	// POST: api/Herramientas/asignarHerramienta
+
+
 	[HttpPost("asignarHerramienta")]
 	public async Task<IActionResult> AsignarHerramienta([FromBody] Prestamo prestamo)
 	{
@@ -54,24 +65,24 @@ public class HerramientasController : ControllerBase
 			return BadRequest("Invalid assignment data");
 		}
 
-		// Create a new Prestamo record
+
 		var entity = new Prestamo
 		{
 			HerramientaID = prestamo.HerramientaID,
 			UsuarioID = prestamo.UsuarioID,
-			FechaPrestamo = DateTime.Now, // Assuming the loan starts now
-			FechaDevolucion = DateTime.MinValue // Assuming the return date is not set at the time of assignment
+			FechaPrestamo = DateTime.Now, 
+			FechaDevolucion = DateTime.MinValue 
 		};
 
 		try
 		{
 			_context.Prestamos.Add(entity);
 
-			// Find the Herramienta to update its EstadoID
+
 			var herramienta = await _context.Herramientas.FirstOrDefaultAsync(h => h.HerramientaId == prestamo.HerramientaID);
 			if (herramienta != null)
 			{
-				herramienta.EstadoID = 2; // Set the EstadoID to 2
+				herramienta.EstadoID = 2; 
 				_context.Herramientas.Update(herramienta);
 			}
 			else
@@ -84,12 +95,12 @@ public class HerramientasController : ControllerBase
 		}
 		catch (Exception ex)
 		{
-			// Log the exception details for debugging
+
 			return StatusCode(500, "Internal server error: " + ex.Message);
 		}
 	}
 
-	// GET: api/Herramientas/SolicitudesPendientes
+
 	[HttpGet("SolicitudesPendientes")]
 	public async Task<ActionResult<IEnumerable<dynamic>>> GetSolicitudesPendientes()
 	{
@@ -102,7 +113,7 @@ public class HerramientasController : ControllerBase
 				  {
 					  UsuarioNombre = usuario.Nombre + " " + usuario.Apellido,
 					  prestamo.HerramientaID,
-					  prestamo.PrestamoID // Incluir PrestamoID aquí
+					  prestamo.PrestamoID 
 				  })
 			.Join(_context.Herramientas,
 				  prestamo => prestamo.HerramientaID,
@@ -111,7 +122,7 @@ public class HerramientasController : ControllerBase
 				  {
 					  prestamo.UsuarioNombre,
 					  NombreHerramienta = herramienta.Nombre,
-					  prestamo.PrestamoID // Asegúrate de incluir PrestamoID en el resultado final
+					  prestamo.PrestamoID 
 				  })
 			.ToListAsync();
 
@@ -119,7 +130,6 @@ public class HerramientasController : ControllerBase
 	}
 
 
-	// POST: api/Herramientas/ActualizarPrestamoYHerramienta/5
 	[HttpPost("ActualizarPrestamoYHerramienta/{prestamoId}")]
 	public async Task<IActionResult> ActualizarPrestamoYHerramienta(int prestamoId)
 	{
@@ -129,14 +139,12 @@ public class HerramientasController : ControllerBase
 			return NotFound("Prestamo not found.");
 		}
 
-		// Actualizar la fecha de préstamo a la fecha actual
 		prestamo.FechaPrestamo = DateTime.Now;
 
-		// Actualizar el estado de la herramienta asociada
 		var herramienta = await _context.Herramientas.FirstOrDefaultAsync(h => h.HerramientaId == prestamo.HerramientaID);
 		if (herramienta != null)
 		{
-			herramienta.EstadoID = 2; // Suponiendo que '2' significa "En Uso"
+			herramienta.EstadoID = 2; 
 		}
 		else
 		{
@@ -146,5 +154,44 @@ public class HerramientasController : ControllerBase
 		await _context.SaveChangesAsync();
 		return Ok(new { Message = "Prestamo y Herramienta actualizados correctamente." });
 	}
+
+	[HttpPost("CrearPrestamo")]
+	public async Task<IActionResult> CrearPrestamo([FromBody] Prestamo prestamo)
+	{
+		if (prestamo == null)
+		{
+			return BadRequest("La solicitud de préstamo es inválida.");
+		}
+
+
+		var herramienta = await _context.Herramientas.FindAsync(prestamo.HerramientaID);
+		if (herramienta == null)
+		{
+			return NotFound($"Herramienta con ID {prestamo.HerramientaID} no encontrada.");
+		}
+		herramienta.EstadoID = 2; 
+
+		_context.Prestamos.Add(prestamo);
+		await _context.SaveChangesAsync(); 
+
+		return Ok(new { mensaje = "Préstamo creado exitosamente." });
+	}
+
+
+	[HttpDelete("EliminarHerramienta/{herramientaId}")]
+	public async Task<IActionResult> EliminarHerramienta(int herramientaId)
+	{
+		var herramienta = await _context.Herramientas.FindAsync(herramientaId);
+		if (herramienta == null)
+		{
+			return NotFound();
+		}
+
+		_context.Herramientas.Remove(herramienta);
+		await _context.SaveChangesAsync();
+
+		return NoContent(); 
+	}
+
 
 }

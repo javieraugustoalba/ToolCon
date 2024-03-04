@@ -39,6 +39,8 @@ function Login() {
         }
         console.log('Login successful:', data);
         localStorage.setItem('userToken', data.token); // Assuming token is received
+        localStorage.setItem('RolID', data.rolID); // Assuming token is received
+        localStorage.setItem('usuarioID', data.usuarioID);
         navigate('/Dashboard'); // Redirect to Dashboard on success
       } else {
         // Handle non-JSON responses (e.g., plain text)

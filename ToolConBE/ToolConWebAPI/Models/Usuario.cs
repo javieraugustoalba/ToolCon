@@ -24,12 +24,6 @@ namespace ToolConWebAPI.Models
 		[Required]
 		[StringLength(100)]
 		public string Contraseña { get; set; }
-
-		// Relación con Rol
 		public int RolID { get; set; }
-		public virtual Rol Rol { get; set; }
-
-		// Relación con Préstamos
-		public virtual ICollection<Prestamo> Prestamos { get; set; }
 	}
 }

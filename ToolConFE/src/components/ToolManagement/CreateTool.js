@@ -1,21 +1,33 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import './create-tool.css';
 import Header from '../Header/HeaderIconos';
 import Footer from '../Footer/Footer';
 import LeftNav from '../LeftNav/LeftNav';
-import { NavLink } from 'react-router-dom';
 
 
 export default function CreateTool() {
-  const [nombre, setNombre] = useState('');
-  const [marca, setMarca] = useState('');
-  const [fechaCompra, setFechaCompra] = useState('');
-  const [tiempoUsoEstimado, setTiempoUsoEstimado] = useState('');
-  const [costo, setCosto] = useState('');
-  const [estadoID, setEstadoID] = useState('');
-  const navigate = useNavigate(); 
-  // Esta función maneja el envío del formulario
+
+  const location = useLocation();
+  const toolData = location.state?.tool; // Accessing the tool data passed as state
+
+  const [fechaCompra, setFechaCompra] = useState(toolData ? toolData.fechaCompra.split("T")[0] : '');
+  const [tiempoUsoEstimado, setTiempoUsoEstimado] = useState(toolData ? toolData.tiempoUsoEstimado : '');
+  const [costo, setCosto] = useState(toolData ? toolData.costo : "");
+  const [estadoID, setEstadoID] = useState(toolData ? toolData.estadoID : 1);
+  const navigate = useNavigate();
+
+  const [nombre, setNombre] = useState(toolData ? toolData.nombre : '');
+  const [marca, setMarca] = useState(toolData ? toolData.marca : '');
+  const [herramientaId, ] = useState(toolData ? toolData.herramientaId : 0);
+
+
+
+
+  useEffect(() => {
+    console.log(location.state);
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault(); // Previene el comportamiento por defecto del formulario
 
@@ -26,12 +38,13 @@ export default function CreateTool() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          HerramientaId: herramientaId,
           Nombre: nombre,
           Marca: marca,
           FechaCompra: fechaCompra,
           TiempoUsoEstimado: tiempoUsoEstimado,
           Costo: parseFloat(costo),
-          EstadoID: estadoID === "Disponible" ? 1 : 2,
+          EstadoID: estadoID,
         }),
       });
 
@@ -125,6 +138,7 @@ export default function CreateTool() {
                       <span className='estado-herramienta'>Estado de la Herramienta</span>
                       <select
                         className='select-soli'
+                        disabled={(herramientaId !== 0)}
                         value={estadoID}
                         onChange={(e) => setEstadoID(e.target.value)}
                       >
@@ -136,18 +150,18 @@ export default function CreateTool() {
                     {/* Campo para la foto no incluido, asumiendo manejo de archivos */}
                   </div>
                   <NavLink to={"/tool-management"}>
-                  <button type='submit' className='volver-t'>
-                  <span>Volver</span>
-                  </button>
+                    <button type='submit' className='volver-t'>
+                      <span>Volver</span>
+                    </button>
                   </NavLink>
                   <button type='submit' className='agregartool'>
-                    <span>Agregar</span>
+                    <span>{herramientaId === 0 ? "Agregar" : "Modificar"}</span>
                   </button>
                 </form>
               </div>
-              
+
             </div>
-            
+
           </div>
         </div>
       </div>

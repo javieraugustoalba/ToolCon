@@ -1,169 +1,191 @@
 /* Gtool.css */
 
 .gherramientas-container {
-    background-color: #ffffff;
-    height: 600px;
-    width: 100%;
-    padding-top: 20px;
-    font-family: Plus Jakarta Sans, var(--default-font-family);
-    border-bottom: solid #f1f1f1 5px;
+  background-color: #ffffff;
+  height: 600px;
+  width: 100%;
+  padding-top: 20px;
+  font-family: Plus Jakarta Sans, var(--default-font-family);
+  border-bottom: solid #f1f1f1 5px;
 
-  }
-  
-  .gherramientas-heading {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    margin-left: 24px;
-    margin-top: 24px;
-  }
-  
-  .gherramientas-table-container {
-    background-color: #ffffff;
-    margin: 60px;
-    margin-bottom: 63px;
-    /*border: 1px solid #ff0000;*/
-    width: 75%;
-    height: 400px;
-    overflow: auto;
-    
-  }
-  
-  .gherramientas-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
+}
+
+.gherramientas-heading {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-left: 24px;
+  margin-top: 24px;
+}
+
+.gherramientas-table-container {
+  background-color: #ffffff;
+  margin: 60px;
+  margin-bottom: 63px;
+  /*border: 1px solid #ff0000;*/
+  width: 75%;
+  height: 400px;
+  overflow: auto;
+
+}
+
+.gherramientas-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
 
 
-  }
-  
-  .gherramientas-table th,
-  .gherramientas-table td {
+}
+
+.gherramientas-table th,
+.gherramientas-table td {
   padding: 10px;
   border-top: solid white 10px;
-  
+
 }
-.gherramientas-table th{
-    height: 66px;
+
+.gherramientas-table th {
+  height: 66px;
 }
-  
-  
+
+
 .gherramientas-table-color {
-    background: #EFF3FD;
-    font-weight: bold;
-    font-size: 14px;
-  }
+  background: #EFF3FD;
+  font-weight: bold;
+  font-size: 14px;
+}
 
-  .gherramientas-table-row-two {
-    color: #85A8F8;
+.gherramientas-table-row-two {
+  color: #85A8F8;
 
-  }
-  
-  .gherramientas-button {
-    margin-right: 5px;
-    cursor: pointer;
-    border: none;
-    height: 24px;
-    width: 24px;
-    border-radius: 3px;
-    margin-top: 5px; /* Añade un margen superior */
-    display: inline-block; /* Evita que los botones se superpongan */
-  }
-  
-  .gherramientas-img {
-    height: 24px;
-    width: 24px;
-  }
-  
-  .botoncrear {
-    margin-left:86%;
-    margin-top: 25px;
-    height: 54px;
-    width: 118px;
-    background-color: #3563E9;
-    border: none;
-    color: #ffffff;
-    border-radius: 5px;
-    font-size: 20px;
-  }
-  .g-border-left {
-   border-top-left-radius: 20px;
-   border-bottom-left-radius: 20px;
-  }
-  .g-border-right{
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-   }
+}
+
+.gherramientas-button {
+  margin-right: 5px;
+  cursor: pointer;
+  border: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 3px;
+  margin-top: 5px;
+  /* Añade un margen superior */
+  display: inline-block;
+  /* Evita que los botones se superpongan */
+}
+
+/* Disabled button style */
+.gherramientas-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.2;
+}
+
+.gherramientas-img {
+  height: 24px;
+  width: 24px;
+}
+
+.botoncrear {
+  margin-left: 86%;
+  margin-top: 25px;
+  height: 54px;
+  width: 118px;
+  background-color: #3563E9;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.g-border-left {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.g-border-right {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
 
 .sherramientas-container {
-    background-color: #ffffff;
-    height: 440px;
-    width: 870px;
-    top: 100px;
-    left: 0px;
-    font-family: Plus Jakarta Sans, var(--default-font-family);
-    border-radius: 10px;
-  }
-  .title-solicitud {
-    font-size: 20px;
-    padding: 24px;
-    padding-bottom: 2px;
-  }
+  background-color: #ffffff;
+  height: 440px;
+  width: 870px;
+  top: 100px;
+  left: 0px;
+  font-family: Plus Jakarta Sans, var(--default-font-family);
+  border-radius: 10px;
+}
 
-  .colorrojo {
-    color: #90A3BF;
-    font-size: 14px;
-    left: 15px;
-    padding: 24px;
-    padding-top: 2px;
-    letter-spacing: 1px;
-  }
+.title-solicitud {
+  font-size: 20px;
+  padding: 24px;
+  padding-bottom: 2px;
+}
 
-  .h-soli{
+.colorrojo {
+  color: #90A3BF;
+  font-size: 14px;
+  left: 15px;
+  padding: 24px;
+  padding-top: 2px;
+  letter-spacing: 1px;
+}
 
-    font-size: 16px;
-    padding: 24px;
-    padding-bottom: 16px;
-  }
+.h-soli {
 
-  .select-soli {
-    font-size: 16px;
-    height: 56px;
-    width: 386px;
-    outline: none;
-    border: none;
-    background-color: #f4f5f7;
-    margin-left: 34px;
-    border-radius: 10px;
-  }
-  .e-soli{
-    width: 400px;
-    font-size: 16px;
-    padding: 24px;
-    padding-bottom: 16px;
-    margin-left: 14px;
-  }
+  font-size: 16px;
+  padding: 24px;
+  padding-bottom: 16px;
+}
 
-  .celect-soli {
-    display: flex;
-    align-items: center;
-  }
+.select-soli {
+  font-size: 16px;
+  height: 56px;
+  width: 386px;
+  outline: none;
+  border: none;
+  background-color: #f4f5f7;
+  margin-left: 34px;
+  border-radius: 10px;
+}
 
-  .botonsolicitud {
-    position: relative;
-    bottom: 230px;
-    right: 200px;
-    margin-left:86%;
-    height: 54px;
-    width: 212px;
-    background-color: #3563E9;
-    border: none;
-    color: #ffffff;
-    border-radius: 5px;
-    font-size: 20px;
-  }
+.e-soli {
+  width: 400px;
+  font-size: 16px;
+  padding: 24px;
+  padding-bottom: 16px;
+  margin-left: 14px;
+}
 
-  .botoncrear:hover, .botonsolicitud:hover {
-    background: #1e47c3;
-  }
-  
+.celect-soli {
+  display: flex;
+  align-items: center;
+}
+
+.botonsolicitud {
+  position: relative;
+  bottom: 230px;
+  right: 200px;
+  margin-left: 86%;
+  height: 54px;
+  width: 212px;
+  background-color: #3563E9;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.botoncrear:hover,
+.botonsolicitud:hover {
+  background: #1e47c3;
+}
+
+.botonsolicitud.disabled {
+  background-color: #cccccc;
+  /* Gray background */
+  color: #666666;
+  /* Darker text to indicate it's disabled */
+  cursor: not-allowed;
+  /* Shows a 'not-allowed' cursor on hover */
+}

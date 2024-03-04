@@ -434,6 +434,7 @@ input[type="radio"] {
   background-color: #cccccc; /* Gray background */
   color: #666666; /* Darker text to indicate it's disabled */
   cursor: not-allowed; /* Shows a 'not-allowed' cursor on hover */
+  
 }
 
 .color-rtsk {

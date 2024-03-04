@@ -21,7 +21,7 @@ export default function MessageCreatedTool() {
                 <span>Herramienta Agregada Correctamente</span>
               </div>
               <div className='mensaje-botones'>
-                <NavLink to={"/tool-management"}>
+                <NavLink to={"../dashboard"}>
                 <button className='mensaje-botones-regresar'>Regresar</button>
                 </NavLink>
                 <NavLink to={"/create-tool"}>

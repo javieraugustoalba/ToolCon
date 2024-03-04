@@ -10,17 +10,17 @@ var builder = WebApplication.CreateBuilder(args);
 CultureInfo.DefaultThreadCurrentCulture = CultureInfo.CurrentCulture;
 CultureInfo.DefaultThreadCurrentUICulture = CultureInfo.CurrentCulture;
 
-// Add services to the container.
+
 builder.Services.AddControllers();
 
-// Configure DbContext with SQL Server
+
 builder.Services.AddDbContext<ToolConDbContext>(options =>
 	options.UseSqlServer(builder.Configuration.GetConnectionString("ToolConDbContext")));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Add JWT Authentication
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 	.AddJwtBearer(options =>
 	{
@@ -36,7 +36,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 		};
 	});
 
-// Add CORS policy
 builder.Services.AddCors(options =>
 {
 	options.AddPolicy(name: "AllowSpecificOrigin",
@@ -50,7 +49,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
@@ -59,10 +58,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Apply CORS policy
+
 app.UseCors("AllowSpecificOrigin");
 
-app.UseAuthentication(); // Make sure to call this before UseAuthorization
+app.UseAuthentication(); 
 app.UseAuthorization();
 
 app.MapControllers();

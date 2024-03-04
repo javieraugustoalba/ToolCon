@@ -12,8 +12,6 @@ namespace ToolConWebAPI.Models
         [Required]
         [StringLength(50)]
         public string Nombre { get; set; }
-
-        // Relación con Usuarios
         public virtual ICollection<Usuario> Usuarios { get; set; }
     }
 }

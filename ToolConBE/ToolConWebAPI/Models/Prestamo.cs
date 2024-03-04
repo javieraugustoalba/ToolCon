@@ -14,5 +14,13 @@ namespace ToolConWebAPI.Models
 
 		[Column(TypeName = "date")]
 		public DateTime? FechaDevolucion { get; set; }
+
+
+		public Usuario? Usuario { get; set; }
+		public Herramienta? Herramienta { get; set; }
+
+		public virtual ICollection<Prestamo>? Prestamos { get; set; }
+
+
 	}
 }

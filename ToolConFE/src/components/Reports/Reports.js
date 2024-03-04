@@ -6,6 +6,47 @@ import Footer from '../Footer/Footer';
 import LeftNav from '../LeftNav/LeftNav';
 
 function Reports() {
+
+  function downloadReport(reportName) {
+    fetch(`https://localhost:7238/api/Reports/${reportName}`, {
+      method: 'GET',
+    })
+    .then((response) => response.blob())
+    .then((blob) => {
+      // Create a URL for the blob
+      const url = window.URL.createObjectURL(blob);
+      // Create a new anchor element
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${reportName}.xlsx`; // Filename for download
+      document.body.appendChild(a); // Append the anchor to the document
+      a.click(); // Trigger click to download
+      a.remove(); // Clean up
+    })
+    .catch((error) => console.error('Error downloading report:', error));
+  }
+
+  const generateHerramientasPorOperariosReport = async () => {
+    try {
+      const response = await fetch('https://localhost:7238/api/Reports/HerramientasPorOperarios');
+      if (response.ok) {
+        const blob = await response.blob();
+        const downloadUrl = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.setAttribute('download', 'Herramientas_por_Operarios.xlsx');
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      } else {
+        console.error("Failed to generate report");
+      }
+    } catch (error) {
+      console.error("Error generating report:", error);
+    }
+  };
+  
+  
   return (
   <>
   <div>
@@ -16,8 +57,8 @@ function Reports() {
         <h2 className='report-h2'>Reportes</h2>
         <div className='conteint-reports'>
           <div >
-            <label className='content-la'>Herramientas en Existencia<button><img src={report}></img></button></label>
-            <label className='content-la'>Herramientas por Operarios<button><img src={report}></img></button></label>
+            <label className='content-la'>Herramientas en Existencia<button onClick={() => downloadReport('HerramientasEnExistencia')}><img src={report} alt="Download Report"></img></button></label>
+            <label className='content-la'>Herramientas por Operarios<button onClick={generateHerramientasPorOperariosReport}><img src={report} alt="Generate Report"/></button></label>
           </div>
         </div>
       </div>

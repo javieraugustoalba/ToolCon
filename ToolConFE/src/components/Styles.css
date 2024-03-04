@@ -294,3 +294,12 @@ height:200px;
   z-index: 1000;
   border: solid red 5px;
 }
+
+.section-1.active {
+  background: #3563E9;
+  border-radius: 10px;
+  color: #FFFFFF;
+}
+.section-1.active span {
+  color: #FFFFFF;
+}

@@ -19,7 +19,7 @@ namespace ToolConWebAPI.Models
 		[Column(TypeName = "date")]
 		public DateTime FechaCompra { get; set; }
 
-		public int TiempoUsoEstimado { get; set; } // En horas
+		public int TiempoUsoEstimado { get; set; } 
 
 		[Column(TypeName = "decimal(10, 2)")]
 		public decimal Costo { get; set; }

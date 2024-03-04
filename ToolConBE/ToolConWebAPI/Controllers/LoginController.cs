@@ -12,7 +12,7 @@ namespace ToolConWebAPI.Controllers
 	[Route("[controller]")]
 	public class LoginController : ControllerBase
 	{
-		private readonly ToolConDbContext _context; 
+		private readonly ToolConDbContext _context;
 
 		public LoginController(ToolConDbContext context)
 		{
@@ -30,28 +30,28 @@ namespace ToolConWebAPI.Controllers
 			}
 
 			var token = GenerateJwtToken(user);
-			return Ok(new { Message = "Login successful", Token = token });
+			return Ok(new { Message = "Login successful", Token = token, RolID = user.RolID, UsuarioID = user.UsuarioID });
 		}
 
 		private string GenerateJwtToken(Usuario user)
 		{
-			// Ensure this key is sufficiently long (at least 16 characters / 128 bits)
-			var secretKeyString = "mDYnwr5lbWxRdvT39mosrhiXwGaiOkGo3fbF0NUH2SU="; // Replace this with your actual secure key
+
+			var secretKeyString = "mDYnwr5lbWxRdvT39mosrhiXwGaiOkGo3fbF0NUH2SU="; 
 			var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKeyString));
 			var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
 			var claims = new[]
 			{
-		new Claim(ClaimTypes.NameIdentifier, user.UsuarioID.ToString()),
-		new Claim(ClaimTypes.Email, user.Email),
-        // Add more claims if needed
-    };
+				new Claim(ClaimTypes.NameIdentifier, user.UsuarioID.ToString()),
+				new Claim(ClaimTypes.Email, user.Email),
+
+			};
 
 			var token = new JwtSecurityToken(
-				issuer: null, // Optional
-				audience: null, // Optional
+				issuer: null, 
+				audience: null, 
 				claims: claims,
-				expires: DateTime.Now.AddHours(1), // Token expiration time
+				expires: DateTime.Now.AddHours(1),
 				signingCredentials: credentials);
 
 			return new JwtSecurityTokenHandler().WriteToken(token);
