@@ -28,8 +28,8 @@ const Gwork = () => {
                 <td className="w-border-left">{tool.name}</td>
                 <td>{tool.code}</td>
                 <td className="w-border-right">
-                  <button className="wherramientas-button"><img src={modificar} with="24px" height="24px" /></button>
-                  <button className="wherramientas-button"><img src={eliminar} with="24px" height="24px" /></button>
+                  <button className="wherramientas-button"><NavLink to={"/modificar-operario"}><img src={modificar} with="24px" height="24px" /></NavLink></button>
+                  <button className="wherramientas-button"><NavLink to={"/modificar-operario"}><img src={eliminar} with="24px" height="24px" /></NavLink></button>
                 </td>
               </tr>
             ))}

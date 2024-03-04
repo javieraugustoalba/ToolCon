@@ -5,6 +5,7 @@ import Header from '../Header/HeaderIconos';
 import Footer from '../Footer/Footer';
 import Gtool from './Gtool'
 import UseValidateToken from '../Api/token-api'
+import ModificarT from './ModificarT'
 
 function ToolManagement() {
     UseValidateToken(); //  This will now handle session validation

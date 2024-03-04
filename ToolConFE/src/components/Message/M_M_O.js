@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 
 
 
-export default function MessageCreateOperator() {
+export default function MessageUpdateOperator() {
   return (
 <>
     <div>
@@ -19,14 +19,11 @@ export default function MessageCreateOperator() {
                 <span className='gestion-de-herramientas'>Gestion de Operarios</span>
               </div>
               <div className='mensaje-centro'>
-                <span>Operario Agregado Correctamente</span>
+                <span>Operario Modificado Correctamente</span>
               </div>
               <div className='mensaje-botones'>
                 <NavLink to={"/workers-management"}>
                 <button className='mensaje-botones-regresar'>Regresar</button>
-                </NavLink>
-                <NavLink to={"/create-operator"}>
-                <button className='mensaje-botones-agregar'>Agregar Otro Operario</button>
                 </NavLink>
               </div>
                 

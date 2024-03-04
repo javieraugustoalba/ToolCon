@@ -46,7 +46,14 @@ export default function RequestWorkersStoreKeeper() {
 
 
   return (
+    
     <div className='recent-transaction'>
+      <div className='flex-row-ef'>
+              <div className='car-name' />
+              <span className='solicitudes-de-operarios'>
+                  Solicitudes de Operarios
+              </span>
+          </div>
       {solicitudes.map((solicitud, index) => (
         <div key={index} className='div-recent-transaction'>
           <div className='div-flex-row-bc'>
