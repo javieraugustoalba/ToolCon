@@ -1,7 +1,7 @@
 .fondo-mensaje {
     background: #ffffff;
     font-size: 20px;
-    height: 400px;
+    height: 600px;
 }
 .mensaje-centro {
     font-size: 36px;
@@ -10,6 +10,7 @@
     height: 90px;
     width: 470px;
     transform: translate(100%, 100%)
+    
 }
 .mensaje-botones{
     position: relative;
@@ -28,6 +29,8 @@
     height: 54px;
     width: 311px;
     left: 500px;
+    font-size: 21px;
+    border-radius: 4.2px;
 }
 .mensaje-botones-regresar {
     position: relative;
@@ -37,4 +40,10 @@
     height: 54px;
     width: 117px;
     left: 470px;
+    font-size: 21px;
+    border-radius: 4.2px;
+}
+
+.mensaje-botones-regresar:hover, .mensaje-botones-agregar:hover {
+    background: #0d3cc8;
 }

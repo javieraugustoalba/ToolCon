@@ -3,26 +3,6 @@
  TOOLCON5
 
 */
-.div-top-car-rental /*Top 5 herramientas frame*/{
-    position: absolute;
-    width: 308px;
-    height: 663px;
-    top: 2px;
-    right: 1px;
-    background: #ffffff;
-    overflow: hidden;
-    border-radius: 10px;
-  }
-  .div-top-car-rental-1e /*Top 5 tools*/{
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    gap: 260px;
-    position: relative;
-    width: 476px;
-    margin: 24px 0 0 24px;
-    z-index: 1;
-  }
   .span-top-toolcon /*Top 5 tools*/{
     display: flex;
     align-items: center;

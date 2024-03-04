@@ -3,6 +3,7 @@ import "./Gtool.css"
 import modificar from './assets/modificar.png'
 import eliminar from './assets/eliminar.png'
 import { NavLink } from "react-router-dom";
+import ModificarT from './ModificarT'
 
 
 
@@ -57,7 +58,7 @@ import { NavLink } from "react-router-dom";
                   <td>${tool.costo}</td>
                   <td>{tool.estadoID === 1 ? "Disponible" : "En Uso"}</td>
                   <td className="g-border-right">
-                    <button className="gherramientas-button"><img src={modificar} with="24px" height="24px" /></button>
+                    <button className="gherramientas-button"><NavLink to={"/modificar-tool"}><img src={modificar} with="24px" height="24px" /></NavLink></button>
                     <button className="gherramientas-button"><img src={eliminar} with="24px" height="24px" /></button>
                   </td>
                 </tr>
@@ -98,9 +99,11 @@ import { NavLink } from "react-router-dom";
                 <option>...</option>
               </select>
           </div>
+          <NavLink to={'/m_s'}>
           <button className="botonsolicitud">
             <span>Generar Solicitud</span>
           </button>
+          </NavLink>
         </div>
       </div>
     );

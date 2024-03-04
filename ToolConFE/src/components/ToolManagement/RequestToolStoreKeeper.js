@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from "react-router-dom";
 import './RequestToolStoreKeeper.css';
 
 export default function RequestToolStoreKeeper() {
@@ -130,11 +131,13 @@ export default function RequestToolStoreKeeper() {
             <span className='mostrar-estado'>{selectedToolHerramientaId}</span>
           </div>
           <div>
+            <NavLink to={'/m_a_t'}>
             <button type="submit"
               className={`bottonloco ${selectedToolEstadoID === "En uso" ? 'disabled' : ''}`} 
               disabled={(selectedToolEstadoID === "En uso")}>
               <span>{selectedToolEstadoID === "En uso" ? 'Herramienta Asignada' : 'Asignar Herramienta'}</span>
             </button>
+            </NavLink>
           </div>
         </div>
       </form>

@@ -5,7 +5,7 @@ import LeftNav from '../LeftNav/LeftNav';
 import { NavLink } from 'react-router-dom';
 
 
-export default function CreateOperator() {
+export default function ModificarOperator() {
   return (
     <>
       <div>
@@ -18,9 +18,9 @@ export default function CreateOperator() {
 
               <div className='billing-info'>
                 <div className='billing-info-1'>
-                  <span className='crear-herramienta'>Crear Operario</span>
+                  <span className='crear-herramienta'>Modificar Operario</span>
                   <span className='ingrese-los-datos'>
-                    Ingrese los Datos del operario que va a usar ToolCon
+                    Ingrese los datos a cambiar del operario que usa ToolCon
                   </span>
                 </div>
                 <div className='flex-row-cdc'>
@@ -77,9 +77,9 @@ export default function CreateOperator() {
                 <span>Volver</span>
               </button>
               </NavLink>
-              <NavLink to={'/m_c_o'}>
+              <NavLink to={'/m_m_o'}>
               <button className='modificar-o'>
-                <span>Agregar</span>
+                <span>Modificar</span>
               </button>
               </NavLink>
             </div>
