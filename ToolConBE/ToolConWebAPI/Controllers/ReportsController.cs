@@ -59,18 +59,21 @@ public class ReportsController : ControllerBase
 
 
 			var herramientasPorOperarios = await _context.Prestamos
-				.Include(p => p.Usuario)
-				.Include(p=> p.Prestamos)
-				.Include(p => p.Herramienta)
-				.Where(p => p.FechaDevolucion == null) 
-				.Select(p => new
-				{
-					Operario = p.Usuario != null ? p.Usuario.Nombre + " " + p.Usuario.Apellido : "Unknown Operario",
-					Herramienta = p.Herramienta != null ? p.Herramienta.Nombre : "Unknown Herramienta",
-					Marca = p.Herramienta != null ? p.Herramienta.Marca : "Unknown Marca"
-
-				})
-				.ToListAsync();
+				 .Where(p => p.FechaDevolucion == null)
+				 .Join(_context.Usuarios,
+					 prestamo => prestamo.UsuarioID,
+					 usuario => usuario.UsuarioID,
+					 (prestamo, usuario) => new { Prestamo = prestamo, Usuario = usuario })
+				 .Join(_context.Herramientas,
+					 combined => combined.Prestamo.HerramientaID,
+					 herramienta => herramienta.HerramientaId,
+					 (combined, herramienta) => new
+					 {
+						 Operario = combined.Usuario.Nombre + " " + combined.Usuario.Apellido,
+						 Herramienta = herramienta.Nombre,
+						 Marca = herramienta.Marca
+					 })
+				 .ToListAsync();
 
 
 			int currentRow = 2;

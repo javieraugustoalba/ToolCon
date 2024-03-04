@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ToolConWebAPI.Models
 {
-	public class Prestamo
+	public class PrestamoReports
 	{
 		[Key]
 		public int PrestamoID { get; set; }
@@ -14,6 +14,13 @@ namespace ToolConWebAPI.Models
 
 		[Column(TypeName = "date")]
 		public DateTime? FechaDevolucion { get; set; }
+
+
+		public virtual Usuario? Usuario { get; set; }
+		public virtual Herramienta? Herramienta { get; set; }
+
+		public virtual ICollection<Prestamo>? Prestamos { get; set; }
+
 
 	}
 }

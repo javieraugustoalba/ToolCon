@@ -163,19 +163,25 @@ public class HerramientasController : ControllerBase
 			return BadRequest("La solicitud de préstamo es inválida.");
 		}
 
-
-		var herramienta = await _context.Herramientas.FindAsync(prestamo.HerramientaID);
-		if (herramienta == null)
+		try
 		{
-			return NotFound($"Herramienta con ID {prestamo.HerramientaID} no encontrada.");
+			var herramienta = await _context.Herramientas.FindAsync(prestamo.HerramientaID);
+			if (herramienta == null)
+			{
+				return NotFound($"Herramienta con ID {prestamo.HerramientaID} no encontrada.");
+			}
+
+			herramienta.EstadoID = 2;
+			_context.Prestamos.Add(prestamo);
+			await _context.SaveChangesAsync();
+			return Ok(new { mensaje = "Préstamo creado exitosamente." });
 		}
-		herramienta.EstadoID = 2; 
-
-		_context.Prestamos.Add(prestamo);
-		await _context.SaveChangesAsync(); 
-
-		return Ok(new { mensaje = "Préstamo creado exitosamente." });
+		catch (Exception ex)
+		{
+			return StatusCode(500, "Ocurrió un error al procesar la solicitud. Por favor, intente de nuevo más tarde."+  ex);
+		}
 	}
+
 
 
 	[HttpDelete("EliminarHerramienta/{herramientaId}")]
