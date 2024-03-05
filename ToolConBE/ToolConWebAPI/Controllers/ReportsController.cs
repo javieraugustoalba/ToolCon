@@ -94,4 +94,47 @@ public class ReportsController : ControllerBase
 		}
 	}
 
+	[HttpGet("HerramientasMasUtilizadas")]
+	public async Task<IActionResult> HerramientasMasUtilizadas()
+	{
+		using (var workbook = new XLWorkbook())
+		{
+			var worksheet = workbook.Worksheets.Add("Herramientas Más Utilizadas");
+			worksheet.Cell(1, 1).Value = "Herramienta";
+			worksheet.Cell(1, 2).Value = "Marca";
+			worksheet.Cell(1, 3).Value = "Veces Prestada";
+
+			var herramientasMasUtilizadas = await _context.Prestamos
+						.Join(_context.Herramientas,
+							  prestamo => prestamo.HerramientaID,
+							  herramienta => herramienta.HerramientaId,
+							  (prestamo, herramienta) => new { Prestamo = prestamo, Herramienta = herramienta })
+						.GroupBy(p => p.Herramienta.HerramientaId)
+						.Select(group => new
+						{
+							Herramienta = group.First().Herramienta.Nombre,
+							Marca = group.First().Herramienta.Marca,
+							VecesPrestada = group.Count()
+						})
+						.OrderByDescending(x => x.VecesPrestada)
+						.ToListAsync();
+
+			int currentRow = 2;
+			foreach (var item in herramientasMasUtilizadas)
+			{
+				worksheet.Cell(currentRow, 1).Value = item.Herramienta;
+				worksheet.Cell(currentRow, 2).Value = item.Marca;
+				worksheet.Cell(currentRow, 3).Value = item.VecesPrestada;
+				currentRow++;
+			}
+
+			using (var stream = new MemoryStream())
+			{
+				workbook.SaveAs(stream);
+				var content = stream.ToArray();
+				return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "HerramientasMasUtilizadas.xlsx");
+			}
+		}
+	}
+
 }

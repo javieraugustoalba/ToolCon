@@ -45,6 +45,27 @@ function Reports() {
       console.error("Error generating report:", error);
     }
   };
+
+  const generateHerramientasMasUtlizadas = async () => {
+    try {
+      const response = await fetch('https://localhost:7238/api/Reports/HerramientasMasUtilizadas');
+      if (response.ok) {
+        const blob = await response.blob();
+        const downloadUrl = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.setAttribute('download', 'Herramientas_Mas_Utilizadas.xlsx');
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      } else {
+        console.error("Failed to generate report");
+      }
+    } catch (error) {
+      console.error("Error generating report:", error);
+    }
+  };
+  
   
   
   return (
@@ -57,8 +78,9 @@ function Reports() {
         <h2 className='report-h2'>Reportes</h2>
         <div className='conteint-reports'>
           <div >
-            <label className='content-la'>Herramientas en Existencia<button onClick={() => downloadReport('HerramientasEnExistencia')}><img src={report} alt="Download Report"></img></button></label>
-            <label className='content-la'>Herramientas por Operarios<button onClick={generateHerramientasPorOperariosReport}><img src={report} alt="Generate Report"/></button></label>
+            <label className='content-la'>Herramientas en Existencia<button onClick={() => downloadReport('HerramientasEnExistencia')}><img src={report} alt="Generar Reporte"></img></button></label>
+            <label className='content-la'>Herramientas por Operarios<button onClick={generateHerramientasPorOperariosReport}><img src={report} alt="Generar Reporte"/></button></label>
+            <label className='content-la'>Herramientas Mas Utilizadas<button onClick={generateHerramientasMasUtlizadas}><img src={report} alt="Generar Reporte"/></button></label>
           </div>
         </div>
       </div>

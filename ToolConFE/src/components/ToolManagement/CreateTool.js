@@ -7,7 +7,7 @@ import LeftNav from '../LeftNav/LeftNav';
 
 
 export default function CreateTool() {
-
+  const [errorMessage, setErrorMessage] = useState('');
   const location = useLocation();
   const toolData = location.state?.tool; // Accessing the tool data passed as state
 
@@ -19,9 +19,35 @@ export default function CreateTool() {
 
   const [nombre, setNombre] = useState(toolData ? toolData.nombre : '');
   const [marca, setMarca] = useState(toolData ? toolData.marca : '');
-  const [herramientaId, ] = useState(toolData ? toolData.herramientaId : 0);
+  const [herramientaId,] = useState(toolData ? toolData.herramientaId : 0);
+  // Estados para los errores de validación
+  const [errors, setErrors] = useState({
+    nombre: false,
+    marca: false,
+    costo: false,
+  });
 
+  const validate = () => {
+    let tempErrors = { nombre: false, marca: false };
+    let isValid = true;
 
+    if (nombre.trim() === '') {
+      tempErrors.nombre = true;
+      isValid = false;
+    }
+    if (marca.trim() === '') {
+      tempErrors.marca = true;
+      isValid = false;
+    }
+    if (costo.trim() === '') {
+      tempErrors.costo = true;
+      isValid = false;
+    }
+
+    setErrors(tempErrors);
+    setErrorMessage('Error al validar alguno de los campos');
+    return isValid;
+  };
 
 
   useEffect(() => {
@@ -30,7 +56,10 @@ export default function CreateTool() {
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Previene el comportamiento por defecto del formulario
-
+    if (!validate()) {
+      console.log('Validación fallida');
+      return;
+    }
     try {
       const response = await fetch('https://localhost:7238/api/Herramientas/AgregarHerramientas', {
         method: 'POST',
@@ -57,6 +86,7 @@ export default function CreateTool() {
       // Aquí puedes manejar acciones post-creación, como redireccionar al usuario
     } catch (error) {
       console.error('Error al agregar la herramienta:', error);
+      setErrorMessage('Ha ocurrido un error al agregar la herramienta. Por favor, intente de nuevo.');
     }
   };
 
@@ -69,7 +99,7 @@ export default function CreateTool() {
           <div className='flex-column-a'>
             <div className='gherramientas-container'>
               <span className='gherramientas-heading'>Gestion de Herramientas</span>
-
+              {errorMessage && <div className="error-message">{errorMessage}</div>}
               <div className='billing-info'>
                 <div className='billing-info-1'>
                   <span className='crear-herramienta'>Crear Herramienta</span>
@@ -85,7 +115,7 @@ export default function CreateTool() {
                       <span className='nombre-de-la-herramienta'>Nombre de la Herramienta</span>
                       <div className='your-name'>
                         <input
-                          className='ej-tool'
+                          className={`ej-tool ${errors.nombre ? 'error' : ''}`}
                           placeholder='Ej; Martillo'
                           value={nombre}
                           onChange={(e) => setNombre(e.target.value)}
@@ -116,7 +146,7 @@ export default function CreateTool() {
                       <div className='address'>
                         <span className='costo'>Costo</span>
                         <input
-                          className='ej-tool'
+                          className={`ej-tool ${errors.costo ? 'error' : ''}`}
                           placeholder='EJ:50000'
                           value={costo}
                           onChange={(e) => setCosto(e.target.value)}
@@ -125,8 +155,8 @@ export default function CreateTool() {
                       <div className='address-8'>
                         <span className='marca'>Marca</span>
                         <input
-                          className='ej-tool'
-                          placeholder='EJ: MarcaA'
+                          className={`ej-tool ${errors.marca ? 'error' : ''}`}
+                          placeholder='Marca'
                           value={marca}
                           onChange={(e) => setMarca(e.target.value)}
                         />

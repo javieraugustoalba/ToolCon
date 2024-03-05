@@ -674,3 +674,13 @@
   .agregartool:hover, .agregarop:hover, .volver-t:hover, .modificar-t:hover, .volver-o:hover, .modificar-o:hover {
     background: #0d3cc8;
   }
+
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+
+  .error {
+    border-color: red;
+    border-style: solid;
+  }

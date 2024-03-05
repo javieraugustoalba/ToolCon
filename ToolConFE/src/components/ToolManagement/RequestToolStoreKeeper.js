@@ -134,7 +134,7 @@ export default function RequestToolStoreKeeper() {
             <button type="submit"
               className={`bottonloco ${selectedToolEstadoID === "En uso" ? 'disabled' : ''}`} 
               disabled={(selectedToolEstadoID === "En uso")}>
-              <span>{selectedToolEstadoID === "En uso" ? 'Herramienta Asignada' : 'Asignar Herramienta'}</span>
+              <span>{selectedToolEstadoID === "En uso" ? 'Herramienta No Disponible' : 'Asignar Herramienta'}</span>
             </button>
           </div>
         </div>

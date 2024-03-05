@@ -166,7 +166,7 @@ const Gtool = () => {
             </select>
           </div>
           <button className={`botonsolicitud ${herramientaSeleccionada.estadoID === 2 ? 'disabled' : ''}`} onClick={handleSubmit}>
-            <span>{herramientaSeleccionada.estadoID === 2 ? 'Herramienta Asignada' : 'Generar Solicitud'}</span>
+            <span>{herramientaSeleccionada.estadoID === 2 ? 'Herramienta No Disponible' : 'Generar Solicitud'}</span>
           </button>
         </div>
       )}
