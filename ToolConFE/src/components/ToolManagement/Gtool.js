@@ -6,6 +6,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 const Gtool = () => {
   const [toolsData, setToolsData] = useState([]);
+  const [toolsInUse, setToolsInUse] = useState([]);
   const navigate = useNavigate();
   const [rolID, setRolID] = useState(null);
   const [herramientaSeleccionada, setHerramientaSeleccionada] = useState({});
@@ -31,6 +32,7 @@ const Gtool = () => {
         }
         const data = await response.json();
         setToolsData(data);
+        console.log(toolsData);
       } catch (error) {
         console.error("Failed to fetch herramientas:", error);
       }
@@ -40,7 +42,7 @@ const Gtool = () => {
   }, []);
 
   const handleDelete = async (herramientaId) => {
-    if (window.confirm("Are you sure you want to delete this tool?")) {
+    if (window.confirm("Seguro que desea borrar esta herramienta?")) {
       try {
         const response = await fetch(`https://localhost:7238/api/Herramientas/EliminarHerramienta/${herramientaId}`, {
           method: 'DELETE',
@@ -50,7 +52,8 @@ const Gtool = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        console.log('Tool deleted successfully.');
+        console.log('Herramienta borrada Satisfactoriamente.');
+
         // Optionally, refresh the tools list to reflect the deletion
       } catch (error) {
         console.error('Error during the API call:', error);
@@ -86,6 +89,64 @@ const Gtool = () => {
     } catch (error) {
       console.error('Error al generar la solicitud:', error);
 
+    }
+  };
+  useEffect(() => {
+    if (!rolIDStored) {
+        navigate('/login');
+        return;
+    }
+    setRolID(parseInt(rolIDStored));
+
+    // Adjusted to fetch tools in use by the logged-in user
+    const fetchHerramientasEnUso = async () => {
+        try {
+            const usuarioID = parseInt(usuarioIDStored);
+            const response = await fetch(`https://localhost:7238/api/Herramientas/HerramientasEnUsoPorUsuario/${usuarioID}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const toolsInUseData = await response.json();
+            setToolsInUse(toolsInUseData); // Assuming toolsData is meant to store tools in use
+
+        } catch (error) {
+            console.error("Failed to fetch herramientas en uso:", error);
+        }
+    };
+
+    fetchHerramientasEnUso();
+}, [navigate, rolIDStored, usuarioIDStored]);
+
+  const handleReturnTool = async (prestamoId) => {
+    // Assuming you have a way to get the `prestamoId` for the tool being returned
+    // For demonstration, let's say you have it stored or can retrieve it somehow
+
+    if (!prestamoId) {
+      alert("No pudimos encontrar prestamos para esta herramienta.");
+      return;
+    }
+
+    if (window.confirm("Seguro que desea devolver esta herramienta?")) {
+      try {
+        const response = await fetch(`https://localhost:7238/api/Prestamos/DevolverHerramienta/${prestamoId}`, {
+          method: 'POST', // or 'PUT' if your API requires
+          headers: {
+            'Content-Type': 'application/json',
+            // Include any other headers your API needs, such as authorization tokens
+          },
+        });
+
+        if (response.ok) {
+          alert("Herramienta retornada satisfactoriamente.");
+          // Optionally refresh the tools list or update the UI as needed
+          // fetchToolsData(); // if you have a function to refresh the tools data
+        } else {
+          throw new Error("Failed to return the tool.");
+        }
+      } catch (error) {
+        console.error("Error returning the tool:", error);
+        alert("Error devolviendo herramienta. Por favor intente de nuevo.");
+      }
     }
   };
 
@@ -144,7 +205,6 @@ const Gtool = () => {
             <h2 className="h-soli">Herramientas</h2>
             <select className="select-soli" onChange={(e) => {
               const herramienta = toolsData.find(tool => tool.herramientaId.toString() === e.target.value);
-              console.log(toolsData);
               setHerramientaSeleccionada(herramienta || {});
             }}>
               <option value="">Seleccione una herramienta</option>
@@ -165,9 +225,33 @@ const Gtool = () => {
               <option>{herramientaSeleccionada.herramientaId}</option>
             </select>
           </div>
-          <button className={`botonsolicitud ${herramientaSeleccionada.estadoID === 2 ? 'disabled' : ''}`} onClick={handleSubmit}>
+          <button disabled={herramientaSeleccionada.estadoID === 2} className={`botonsolicitud ${herramientaSeleccionada.estadoID === 2 ? 'disabled' : ''}`} onClick={handleSubmit}>
             <span>{herramientaSeleccionada.estadoID === 2 ? 'Herramienta No Disponible' : 'Generar Solicitud'}</span>
           </button>
+        </div>
+      )}
+
+      {rolID === 1 && (
+        <div className="herramientas-en-uso-container">
+          <h2>Herramientas en Uso</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              {toolsInUse.filter(toolInUse => toolInUse.estadoID !== 1).map((toolInUse) => (
+                <tr key={toolInUse.prestamoID}>
+                  <td>{toolInUse.nombre} Cod: {toolInUse.prestamoID}</td>
+                  <td>
+                    <button onClick={() => handleReturnTool(toolInUse.prestamoID)}>Devolver Herramienta</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
 

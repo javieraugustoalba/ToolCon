@@ -4,6 +4,7 @@ using ToolConWebAPI;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using ToolConWebAPI.Models;
+using ToolConWebAPI.DTO;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -198,6 +199,33 @@ public class HerramientasController : ControllerBase
 
 		return NoContent(); 
 	}
+	[HttpGet("HerramientasEnUsoPorUsuario/{usuarioID}")]
+	public async Task<ActionResult<IEnumerable<HerramientaEnUsoDTO>>> GetHerramientasEnUsoPorUsuario(int usuarioID)
+	{
+		var prestamos = await _context.Prestamos
+			.Where(p => p.UsuarioID == usuarioID && p.FechaPrestamo != null && p.FechaDevolucion == null)
+			.Join(_context.Herramientas,
+				prestamo => prestamo.HerramientaID,
+				herramienta => herramienta.HerramientaId,
+				(prestamo, herramienta) => new HerramientaEnUsoDTO
+				{
+					PrestamoID = prestamo.PrestamoID,
+					HerramientaID = herramienta.HerramientaId,
+					Nombre = herramienta.Nombre,
+					Marca = herramienta.Marca,
+					FechaCompra = herramienta.FechaCompra,
+					TiempoUsoEstimado = herramienta.TiempoUsoEstimado,
+					Costo = herramienta.Costo,
+					EstadoID = herramienta.EstadoID
+				})
+			.ToListAsync();
 
+		if (prestamos == null || !prestamos.Any())
+		{
+			return NotFound();
+		}
+
+		return prestamos;
+	}
 
 }

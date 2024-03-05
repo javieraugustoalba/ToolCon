@@ -29,5 +29,31 @@ namespace ToolConWebAPI.Controllers
 			return Ok(activeLoans);
 		}
 
+		[HttpPost("DevolverHerramienta/{prestamoId}")]
+		public async Task<IActionResult> DevolverHerramienta(int prestamoId)
+		{
+			var prestamo = await _context.Prestamos.FindAsync(prestamoId);
+			if (prestamo == null)
+			{
+				return NotFound("Prestamo not found.");
+			}
+
+			// Update the return date to now
+			prestamo.FechaDevolucion = DateTime.Now;
+
+			// Find the tool and update its status
+			var herramienta = await _context.Herramientas.FindAsync(prestamo.HerramientaID);
+			if (herramienta != null)
+			{
+				herramienta.EstadoID = 1; // Assuming '1' is the ID for 'Disponible'
+				_context.Update(herramienta);
+			}
+
+			await _context.SaveChangesAsync();
+			return Ok(new { Message = "Herramienta devuelta correctamente." });
+		}
+
+
 	}
+
 }
