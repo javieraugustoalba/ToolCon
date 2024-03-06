@@ -233,25 +233,29 @@ const Gtool = () => {
 
       {rolID === 1 && (
         <div className="herramientas-en-uso-container">
-          <h2>Herramientas en Uso</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Acción</th>
-              </tr>
-            </thead>
-            <tbody>
-              {toolsInUse.filter(toolInUse => toolInUse.estadoID !== 1).map((toolInUse) => (
-                <tr key={toolInUse.prestamoID}>
-                  <td>{toolInUse.nombre} Cod: {toolInUse.prestamoID}</td>
-                  <td>
-                    <button onClick={() => handleReturnTool(toolInUse.prestamoID)}>Devolver Herramienta</button>
-                  </td>
+          <h2 className="herramientatitulo">Herramientas en Uso</h2>
+          <div  className="tablaherramienta">
+            <table className="coltable">
+              <thead>
+                <tr>
+                  <th className="nombreherramientat">Nombre</th>
+                  <th>Acción</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <div className="tablacontenidoherramienta">
+                <tbody >
+                  {toolsInUse.filter(toolInUse => toolInUse.estadoID !== 1).map((toolInUse) => (
+                    <tr key={toolInUse.prestamoID} className="textcolhe">
+                      <td className="tablaherramientas" >{toolInUse.nombre} Cod: {toolInUse.prestamoID}</td>
+                      <td>
+                        <button onClick={() => handleReturnTool(toolInUse.prestamoID)}>Devolver Herramienta</button>
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+              </div>
+            </table>
+          </div>
         </div>
       )}
 

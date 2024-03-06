@@ -4,7 +4,7 @@
 .recent-transaction {
     position: relative;
     width: 30%;
-    height: 56%;
+    height: 55.5%;
     margin: 5px 0 0 0;
     background: #fdfdfd;
     overflow-y: scroll;
@@ -40,6 +40,7 @@
     position: absolute;
     height: 30px;
     top: 4px;
+    margin-bottom: 20px;
     left: calc(50% - 125px);
     color: #1a202c;
     font-family: Plus Jakarta Sans, var(--default-font-family);
@@ -120,19 +121,28 @@
   }
 
   .button-rent {
+    position: relative;
+    right: 60px;
+    bottom: 20px;
     background: #3563e9;
     border: none;
     border-radius: 5px;
     height: 40px;
     padding: 10px;
     float:right;
+}  
+
+.button-rent:hover {
+  background: #1747d5;
 }
+
   .span-asignar {
     color: #ffffff;
   }
 
   .div-recent-transaction{
-    height: 20%;
+    height: 80px;
+    margin-bottom: 20px;
   }
 
   /*Imagenes de los operarios*/
@@ -141,7 +151,7 @@
     position: relative;
     width: 383px;
     height: 1px;
-    top: -20px;
+    top: 50px;
     margin-left: 42px;
     background: url(../assets/images/e0c536b2-7a5b-46c1-ac49-d3fe3cdbce61.png)
       no-repeat center;
