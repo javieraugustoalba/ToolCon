@@ -7,7 +7,7 @@ const LogoutComponent = ({ onLogout }) => {
     <>
     <NavLink to={'/'}>
     <div className='logout-container'>
-        <p></p>
+        <p>Cierra tu sesión</p>
       <button onClick={onLogout}>Cerrar Sesión</button>
     </div>
     </NavLink>

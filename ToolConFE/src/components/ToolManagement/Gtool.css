@@ -189,3 +189,60 @@
   cursor: not-allowed;
   /* Shows a 'not-allowed' cursor on hover */
 }
+.herramientas-en-uso-container{
+  top: 600px;
+  left: 1px;
+  height: 437px;
+  width: 500px;
+  background: #ffffff;
+  position: absolute;
+}
+.herramientatitulo {
+  margin: 7px;
+}
+.tablaherramienta{
+  position: relative;
+  left: 50px;
+  width: 300px;
+}
+.tablaherramienta thead{
+  height: 50px;
+}
+.tablaherramienta th {
+  background: #3563E9;
+  border-radius: 4.2px;
+  color: #ffffff;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.tablaherramientas {
+  position: relative;
+  display: flex;
+  width: 303px;
+  margin-top: 10px;
+}
+.tablaherramienta button {
+  margin-bottom: 20px;
+  background: #3563E9;
+  color: #ffffff;
+  border: none;
+  width: 50px;
+  border-radius: 4.2px;
+  width: 80px;
+  height: 40px;
+  position: relative;
+}
+.tablacontenidoherramienta {
+ width: 300px;;
+}
+.coltable {
+  background-color: #EFF3FD;
+  border-radius: 4.2px;
+}
+.textcolhe {
+  width: 200px;
+  position: relative;
+}
